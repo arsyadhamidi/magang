@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminPerizinanController;
 use App\Http\Controllers\Admin\AdminPerusahaanController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LupaPasswordController;
 use App\Http\Controllers\Auth\RegistrasiController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Kepala\KepalaPerizinanController;
@@ -48,6 +49,13 @@ Route::get('/login/logout', [LoginController::class, 'logout'])->name('login.log
 // Registrasi
 Route::get('/registrasi', [RegistrasiController::class, 'index'])->name('registrasi.index');
 Route::post('/registrasi/store', [RegistrasiController::class, 'store'])->name('registrasi.store');
+
+// Lupa Password
+Route::get('/lupa-password/index', [LupaPasswordController::class, 'lupaPassword'])->name('lupa-password.index');
+Route::get('/reset-password/index', [LupaPasswordController::class, 'resetPassword'])->name('reset-password.index');
+Route::post('/lupa-password/storelupapassword', [LupaPasswordController::class, 'storelupapassword'])->name('lupa-password.storelupapassword');
+Route::post('/reset-password/storeresetpassword', [LupaPasswordController::class, 'storeresetpassword'])->name('reset-password.storeresetpassword');
+
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 

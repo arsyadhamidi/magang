@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login | Magang</title>
+    <title>Reset Password | Magang</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -26,25 +26,10 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Selamat datang di sistem kami</p>
+                <p class="login-box-msg">Lupa password jangan takut!</p>
 
-                <form action="{{ route('login.authenticate') }}" method="post">
+                <form action="{{ route('reset-password.storeresetpassword') }}" method="post">
                     @csrf
-                    <div class="input-group mb-3">
-                        <input type="text" name="username"
-                            class="form-control @error('username') is-invalid @enderror" placeholder="Username"
-                            value="{{ old('username') }}">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                        @error('username')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
                     <div class="input-group
                             mb-3">
                         <input type="password" name="password"
@@ -60,31 +45,31 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Ingat saya
-                                </label>
+                    <div class="input-group
+                            mb-3">
+                        <input type="password" name="konfirmasipassword"
+                            class="form-control @error('konfirmasipassword') is-invalid @enderror" placeholder="Konfirmasi Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        <!-- /.col -->
-                        <div class="col-5">
-                            <a href="{{ route('lupa-password.index') }}">Lupa password ?</a>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="my-3">
-                                <button type="submit" class="btn btn-primary btn-block w-100">Masuk</button>
+                        @error('konfirmasipassword')
+                            <div class="invalid-feedback">
+                                {{ $message }}
                             </div>
+                        @enderror
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="my-3">
+                            <button type="submit" class="btn btn-primary btn-block w-100">Reset Password</button>
                         </div>
-                        <!-- /.col -->
                     </div>
                 </form>
 
                 <p class="mb-0 text-center">
-                    Belum punya akun ?
-                    <a href="{{ route('registrasi.index') }}" class="text-center">Register !</a>
+                    Kembali ke halaman login ?
+                    <a href="{{ route('login.logout') }}" class="text-center">Login !</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
