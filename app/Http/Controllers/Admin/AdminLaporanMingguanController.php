@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use PDF;
 use App\Http\Controllers\Controller;
 use App\Models\LaporanMingguan;
 use App\Models\User;
@@ -118,5 +119,21 @@ class AdminLaporanMingguanController extends Controller
         $laporans->delete();
 
         return redirect()->route('data-laporanmingguan.index')->with('success', 'Selamat ! Anda berhasil menghapus data');
+    }
+
+    public function generatepdf(Request $request)
+    {
+        $query = LaporanMingguan::query();
+
+        // Filter berdasarkan status
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        // Dapatkan data berdasarkan filter
+        $mingguans = $query->latest()->get();
+
+    	$pdf = PDF::loadview('admin.laporan-mingguan.export-pdf',['mingguans'=> $mingguans]);
+    	return $pdf->stream('laporan-mingguan.pdf');
     }
 }

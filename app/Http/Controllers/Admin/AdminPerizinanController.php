@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use PDF;
 use App\Http\Controllers\Controller;
-use App\Models\Mahasiswa;
 use App\Models\Perizinan;
-use App\Models\Perusahan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -153,5 +152,21 @@ class AdminPerizinanController extends Controller
         $izins->delete();
 
         return redirect()->route('data-perizinan.index')->with('success', 'Selamat ! Anda berhasil menghapus data');
+    }
+
+    public function generatepdf(Request $request)
+    {
+        $query = Perizinan::query();
+
+        // Filter berdasarkan status
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        // Dapatkan data berdasarkan filter
+        $izins = $query->latest()->get();
+
+    	$pdf = PDF::loadview('admin.perizinan.export-pdf',['izins'=> $izins]);
+    	return $pdf->stream('laporan-perizinan.pdf');
     }
 }

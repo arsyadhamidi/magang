@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-laporanmingguan/store', [AdminLaporanMingguanController::class, 'store'])->name('data-laporanmingguan.store');
         Route::post('/data-laporanmingguan/update/{id}', [AdminLaporanMingguanController::class, 'update'])->name('data-laporanmingguan.update');
         Route::post('/data-laporanmingguan/destroy/{id}', [AdminLaporanMingguanController::class, 'destroy'])->name('data-laporanmingguan.destroy');
+        Route::post('/data-laporanmingguan/generatepdf', [AdminLaporanMingguanController::class, 'generatepdf'])->name('data-laporanmingguan.generatepdf');
 
         // Laporan Magang
         Route::get('/data-laporanmagang', [AdminLaporanMagangController::class, 'index'])->name('data-laporanmagang.index');
@@ -88,6 +89,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-perizinan/store', [AdminPerizinanController::class, 'store'])->name('data-perizinan.store');
         Route::post('/data-perizinan/update/{id}', [AdminPerizinanController::class, 'update'])->name('data-perizinan.update');
         Route::post('/data-perizinan/destroy/{id}', [AdminPerizinanController::class, 'destroy'])->name('data-perizinan.destroy');
+        Route::post('/data-perizinan/generatepdf', [AdminPerizinanController::class, 'generatepdf'])->name('data-perizinan.generatepdf');
 
         // Users
         Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
@@ -95,11 +97,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-user/update/{id}', [AdminUserController::class, 'update'])->name('data-user.update');
         Route::post('/data-user/destroy/{id}', [AdminUserController::class, 'destroy'])->name('data-user.destroy');
     });
-
-     // Kepala
-     Route::group(['middleware' => [CekLevel::class . ':Kepala']], function () {
-        Route::get('/kepala-perizinan', [KepalaPerizinanController::class, 'index'])->name('kepala-perizinan.index');
-     });
 
     // Supervisor
     Route::group(['middleware' => [CekLevel::class . ':Supervisor']], function () {

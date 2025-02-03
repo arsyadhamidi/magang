@@ -4,6 +4,45 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="mb-3">
+                <form action="{{ route('data-perizinan.generatepdf') }}" method="POST" target="_blank">
+                    @csrf
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="mb-3">
+                                        <label>Status</label>
+                                        <select name="status" id="selectedStatus"
+                                            class="form-control @error('status') is-invalid @enderror" style="width: 100%">
+                                            <option value="" selected>Pilih Status</option>
+                                            <option value="Diterima" {{ old('status') == 'Diterima' ? 'selected' : '' }}>
+                                                Diterima</option>
+                                            <option value="Proses" {{ old('status') == 'Proses' ? 'selected' : '' }}>
+                                                Proses</option>
+                                            <option value="Ditolak" {{ old('status') == 'Ditolak' ? 'selected' : '' }}>
+                                                Ditolak</option>
+                                        </select>
+                                        @error('status')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-download"></i>
+                                Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="mb-3">
                 <div class="card">
                     <div class="card-header">
                         <a href="{{ route('data-perizinan.create') }}" class="btn btn-primary">
@@ -43,10 +82,12 @@
                                             @endif
                                         </td>
                                         <td class="d-flex">
-                                            <a href="{{ route('data-perizinan.edit', $data->id) }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('data-perizinan.edit', $data->id) }}"
+                                                class="btn btn-sm btn-primary">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{ asset('storage/' . $data->surat_permohonan) }}" class="btn btn-sm btn-info mx-2" target="_blank">
+                                            <a href="{{ asset('storage/' . $data->surat_permohonan) }}"
+                                                class="btn btn-sm btn-info mx-2" target="_blank">
                                                 <i class="fas fa-download"></i>
                                             </a>
                                             <form action="{{ route('data-perizinan.destroy', $data->id) }}" method="POST">
@@ -67,3 +108,10 @@
         </div>
     </div>
 @endsection
+@push('custom-script')
+    <script>
+        $('#selectedStatus').select2({
+            theme: 'bootstrap4'
+        });
+    </script>
+@endpush

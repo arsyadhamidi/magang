@@ -4,6 +4,43 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="mb-3">
+                <form action="{{ route('data-laporanmingguan.generatepdf') }}" method="POST" target="_blank">
+                    @csrf
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="mb-3">
+                                        <label>Status</label>
+                                        <select name="status" id="selectedStatus"
+                                            class="form-control @error('status') is-invalid @enderror" style="width: 100%">
+                                            <option value="" selected>Pilih Status</option>
+                                            <option value="Periksa" {{ old('status') == 'Periksa' ? 'selected' : '' }}>
+                                                Periksa</option>
+                                            <option value="Proses" {{ old('status') == 'Proses' ? 'selected' : '' }}>
+                                                Proses</option>
+                                        </select>
+                                        @error('status')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-download"></i>
+                                Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="mb-3">
                 <div class="card">
                     <div class="card-header">
                         <a href="{{ route('data-laporanmingguan.create') }}" class="btn btn-primary">
@@ -62,3 +99,10 @@
         </div>
     </div>
 @endsection
+@push('custom-script')
+    <script>
+        $('#selectedStatus').select2({
+            theme: 'bootstrap4'
+        });
+    </script>
+@endpush
