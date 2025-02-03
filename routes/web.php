@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLaporanMagangController;
 use App\Http\Controllers\Admin\AdminLaporanMingguanController;
 use App\Http\Controllers\Admin\AdminMahasiswaController;
 use App\Http\Controllers\Admin\AdminPerizinanController;
@@ -65,6 +66,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-laporanmingguan/store', [AdminLaporanMingguanController::class, 'store'])->name('data-laporanmingguan.store');
         Route::post('/data-laporanmingguan/update/{id}', [AdminLaporanMingguanController::class, 'update'])->name('data-laporanmingguan.update');
         Route::post('/data-laporanmingguan/destroy/{id}', [AdminLaporanMingguanController::class, 'destroy'])->name('data-laporanmingguan.destroy');
+
+        // Laporan Magang
+        Route::get('/data-laporanmagang', [AdminLaporanMagangController::class, 'index'])->name('data-laporanmagang.index');
+        Route::get('/data-laporanmagang/create', [AdminLaporanMagangController::class, 'create'])->name('data-laporanmagang.create');
+        Route::get('/data-laporanmagang/edit/{id}', [AdminLaporanMagangController::class, 'edit'])->name('data-laporanmagang.edit');
+        Route::post('/data-laporanmagang/store', [AdminLaporanMagangController::class, 'store'])->name('data-laporanmagang.store');
+        Route::post('/data-laporanmagang/update/{id}', [AdminLaporanMagangController::class, 'update'])->name('data-laporanmagang.update');
+        Route::post('/data-laporanmagang/destroy/{id}', [AdminLaporanMagangController::class, 'destroy'])->name('data-laporanmagang.destroy');
 
         // Perizinan
         Route::get('/data-perizinan', [AdminPerizinanController::class, 'index'])->name('data-perizinan.index');

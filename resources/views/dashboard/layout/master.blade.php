@@ -190,6 +190,14 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item" data-name="laporanmagang">
+                                <a href="{{ route('data-laporanmagang.index') }}" class="nav-link @yield('menuDataLaporanMagang')">
+                                    <i class="nav-icon fas fa-comments"></i>
+                                    <p>
+                                        Laporan Magang
+                                    </p>
+                                </a>
+                            </li>
                             <li class="nav-item" data-name="userregistrasi">
                                 <a href="{{ route('data-user.index') }}" class="nav-link @yield('menuDataUser')">
                                     <i class="nav-icon fas fa-users"></i>
