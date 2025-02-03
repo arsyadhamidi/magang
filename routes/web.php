@@ -59,6 +59,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
         // Perizinan
         Route::get('/data-perizinan', [AdminPerizinanController::class, 'index'])->name('data-perizinan.index');
+        Route::get('/data-perizinan/create', [AdminPerizinanController::class, 'create'])->name('data-perizinan.create');
+        Route::get('/data-perizinan/edit/{id}', [AdminPerizinanController::class, 'edit'])->name('data-perizinan.edit');
+        Route::post('/data-perizinan/store', [AdminPerizinanController::class, 'store'])->name('data-perizinan.store');
+        Route::post('/data-perizinan/update/{id}', [AdminPerizinanController::class, 'update'])->name('data-perizinan.update');
+        Route::post('/data-perizinan/destroy/{id}', [AdminPerizinanController::class, 'destroy'])->name('data-perizinan.destroy');
 
         // Users
         Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
