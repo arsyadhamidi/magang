@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
 
+        // Perizinan
+        Route::get('/data-perizinan', [AdminPerizinanController::class, 'index'])->name('data-perizinan.index');
+
         // Users
         Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
         Route::post('/data-user/store', [AdminUserController::class, 'store'])->name('data-user.store');
@@ -67,39 +70,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // Mahasiswa
     Route::group(['middleware' => [CekLevel::class . ':Mahasiswa']], function () {
 
-        // Riwayat
-        Route::get('/mahasiswa-riwayat', [MahasiswaRiwayatController::class, 'index'])->name('mahasiswa-riwayat.index');
-        Route::get('/mahasiswa-riwayat/generatepdf/{id}', [MahasiswaRiwayatController::class, 'generatepdf'])->name('mahasiswa-riwayat.generatepdf');
-
-        // Biodata
-        Route::post('/biodata-update', [MahasiswaBiodataDiriController::class, 'update'])->name('biodata-update.update');
-
-        // Perizinan
-        Route::get('/mahasiswa-perizinan', [MahasiswaPerizinanController::class, 'index'])->name('mahasiswa-perizinan.index');
-        Route::get('/mahasiswa-perizinan/show/{id}', [MahasiswaPerizinanController::class, 'show'])->name('mahasiswa-perizinan.show');
-        Route::post('/mahasiswa-perizinan/store', [MahasiswaPerizinanController::class, 'store'])->name('mahasiswa-perizinan.store');
-        Route::post('/mahasiswa-perizinan/destroy/{id}', [MahasiswaPerizinanController::class, 'destroy'])->name('mahasiswa-perizinan.destroy');
-    });
-
-    // Pegawai
-    Route::group(['middleware' => [CekLevel::class . ':Pegawai']], function () {
-
-        // Perusahaan
-        Route::get('/pegawai-perusahaan', [PegawaiPerusahaanController::class, 'index'])->name('pegawai-perusahaan.index');
-        Route::post('/pegawai-perusahaan/store', [PegawaiPerusahaanController::class, 'store'])->name('pegawai-perusahaan.store');
-        Route::post('/pegawai-perusahaan/update/{id}', [PegawaiPerusahaanController::class, 'update'])->name('pegawai-perusahaan.update');
-        Route::post('/pegawai-perusahaan/destroy/{id}', [PegawaiPerusahaanController::class, 'destroy'])->name('pegawai-perusahaan.destroy');
-
-        // Mahasiswa
-        Route::get('/pegawai-mahasiswa', [PegawaiMahasiswaController::class, 'index'])->name('pegawai-mahasiswa.index');
-        Route::post('/pegawai-mahasiswa/store', [PegawaiMahasiswaController::class, 'store'])->name('pegawai-mahasiswa.store');
-        Route::post('/pegawai-mahasiswa/update/{id}', [PegawaiMahasiswaController::class, 'update'])->name('pegawai-mahasiswa.update');
-        Route::post('/pegawai-mahasiswa/destroy/{id}', [PegawaiMahasiswaController::class, 'destroy'])->name('pegawai-mahasiswa.destroy');
-
-        // Perizinan
-        Route::get('/pegawai-perizinan', [PegawaiPerizinanController::class, 'index'])->name('pegawai-perizinan.index');
-        Route::post('/pegawai-perizinan/store', [PegawaiPerizinanController::class, 'store'])->name('pegawai-perizinan.store');
-        Route::post('/pegawai-perizinan/update/{id}', [PegawaiPerizinanController::class, 'update'])->name('pegawai-perizinan.update');
-        Route::post('/pegawai-perizinan/destroy/{id}', [PegawaiPerizinanController::class, 'destroy'])->name('pegawai-perizinan.destroy');
     });
 });

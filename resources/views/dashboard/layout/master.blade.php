@@ -174,6 +174,14 @@
                         </li>
 
                         @if (Auth()->user()->level == 'Admin')
+                            <li class="nav-item" data-name="perizinan">
+                                <a href="{{ route('data-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Data Perizinan
+                                    </p>
+                                </a>
+                            </li>
                             <li class="nav-item" data-name="userregistrasi">
                                 <a href="{{ route('data-user.index') }}" class="nav-link @yield('menuDataUser')">
                                     <i class="nav-icon fas fa-users"></i>
