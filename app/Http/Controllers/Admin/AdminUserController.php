@@ -22,11 +22,9 @@ class AdminUserController extends Controller
         }
 
         $users = $query->latest()->get();
-        $perusahaans = Perusahan::latest()->get();
 
         return view('admin.user.index', [
             'users' => $users,
-            'perusahaans' => $perusahaans,
         ]);
     }
 
@@ -53,7 +51,6 @@ class AdminUserController extends Controller
 
         $validated['password'] = bcrypt($request->password);
         $validated['duplicate'] = $request->password;
-        $validated['perusahaan_id'] = $request->perusahaan_id;
 
         User::create($validated);
 
@@ -84,7 +81,6 @@ class AdminUserController extends Controller
         $validated['username'] = $request->username ? $request->username : $users->username;
         $validated['password'] = $request->password ? bcrypt($request->password) : $users->duplicate;
         $validated['duplicate'] = $request->password ? $request->password : $users->duplicate;
-        $validated['perusahaan_id'] = $request->perusahaan_id ? $request->perusahaan_id : $users->perusahaan_id;
 
         $users->update($validated);
 

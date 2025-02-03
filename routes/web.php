@@ -57,12 +57,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
 
-        // Perusahaan
-        Route::get('/data-perizinan', [AdminPerizinanController::class, 'index'])->name('data-perizinan.index');
-        Route::post('/data-perizinan/store', [AdminPerizinanController::class, 'store'])->name('data-perizinan.store');
-        Route::post('/data-perizinan/update/{id}', [AdminPerizinanController::class, 'update'])->name('data-perizinan.update');
-        Route::post('/data-perizinan/destroy/{id}', [AdminPerizinanController::class, 'destroy'])->name('data-perizinan.destroy');
-
         // Users
         Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
         Route::post('/data-user/store', [AdminUserController::class, 'store'])->name('data-user.store');

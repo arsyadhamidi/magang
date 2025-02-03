@@ -70,7 +70,6 @@
                                     <th>Username</th>
                                     <th>Password</th>
                                     <th>Telepon</th>
-                                    <th>Perusahaan</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -83,7 +82,6 @@
                                         <td>{{ $data->username ?? '-' }}</td>
                                         <td>{{ $data->duplicate ?? '-' }}</td>
                                         <td>{{ $data->telp ?? '-' }}</td>
-                                        <td>{{ $data->perusahaan->nama_perusahaan ?? '-' }}</td>
                                         <td>{{ $data->level ?? '-' }}</td>
                                         <td class="d-flex">
                                             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
@@ -154,26 +152,6 @@
                                                                                 value="{{ old('telp', $data->telp ?? '-') }}"
                                                                                 placeholder="Masukan telepon">
                                                                             @error('telp')
-                                                                                <div class="invalid-feedback">
-                                                                                    {{ $message }}
-                                                                                </div>
-                                                                            @enderror
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-12">
-                                                                        <div class="mb-3">
-                                                                            <label>Perusahaan</label>
-                                                                            <select name="perusahaan_id"
-                                                                                class="form-control @error('perusahaan_id') is-invalid @enderror"
-                                                                                id="selectedPerusahaanEdit" style="width: 100%">
-                                                                                <option value="" selected>Pilih Perusahaan</option>
-                                                                                @foreach ($perusahaans as $val)
-                                                                                    <option value="{{ $val->id }}" {{ $data->perusahaan_id == $val->id ? 'selected' : '' }}>
-                                                                                        {{ $val->nama_perusahaan ?? '-' }}
-                                                                                    </option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                            @error('perusahaan_id')
                                                                                 <div class="invalid-feedback">
                                                                                     {{ $message }}
                                                                                 </div>
@@ -304,26 +282,6 @@
                                         class="form-control @error('telp') is-invalid @enderror"
                                         value="{{ old('telp') }}" placeholder="Masukan telepon">
                                     @error('telp')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <label>Perusahaan</label>
-                                    <select name="perusahaan_id"
-                                        class="form-control @error('perusahaan_id') is-invalid @enderror"
-                                        id="selectedPerusahaan" style="width: 100%">
-                                        <option value="" selected>Pilih Perusahaan</option>
-                                        @foreach ($perusahaans as $data)
-                                            <option value="{{ $data->id }}" {{ old('perusahaan_id') == $data->id ? 'selected' : '' }}>
-                                                {{ $data->nama_perusahaan ?? '-' }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('perusahaan_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

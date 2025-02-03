@@ -15,9 +15,6 @@ class DashboardController extends Controller
     public function index()
     {
         $users = User::count();
-        $perusahaans = Perusahan::count();
-        $izins = Perizinan::count();
-        $mahasiswas = Mahasiswa::count();
 
         $currentYear = Carbon::now()->year;
         $years = range($currentYear, $currentYear + 5);
@@ -35,9 +32,6 @@ class DashboardController extends Controller
         }
         return view('dashboard.home.index', [
             'users' => $users,
-            'perusahaans' => $perusahaans,
-            'izins' => $izins,
-            'mahasiswas' => $mahasiswas,
             'chartYears' => $years,
             'chartData' => $chartData,
         ]);
