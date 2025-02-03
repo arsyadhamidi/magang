@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Perusahan;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,10 +10,7 @@ class RegistrasiController extends Controller
 {
     public function index()
     {
-        $perusahaans = Perusahan::latest()->get();
-        return view('auth.registrasi', [
-            'perusahaans' => $perusahaans,
-        ]);
+        return view('auth.registrasi');
     }
 
     public function store(Request $request)
