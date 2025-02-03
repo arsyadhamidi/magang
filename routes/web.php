@@ -15,6 +15,7 @@ use App\Http\Controllers\Mahasiswa\MahasiswaLaporanMagangController;
 use App\Http\Controllers\Mahasiswa\MahasiswaLaporanMingguanController;
 use App\Http\Controllers\Mahasiswa\MahasiswaPerizinanController;
 use App\Http\Controllers\Mahasiswa\MahasiswaRiwayatController;
+use App\Http\Controllers\Operator\OperatorPerizinanController;
 use App\Http\Controllers\Pegawai\PegawaiMahasiswaController;
 use App\Http\Controllers\Pegawai\PegawaiPerizinanController;
 use App\Http\Controllers\Pegawai\PegawaiPerusahaanController;
@@ -90,6 +91,17 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-user/store', [AdminUserController::class, 'store'])->name('data-user.store');
         Route::post('/data-user/update/{id}', [AdminUserController::class, 'update'])->name('data-user.update');
         Route::post('/data-user/destroy/{id}', [AdminUserController::class, 'destroy'])->name('data-user.destroy');
+    });
+
+    // Operator
+    Route::group(['middleware' => [CekLevel::class . ':Operator']], function () {
+        // Perizinan
+        Route::get('/operator-perizinan', [OperatorPerizinanController::class, 'index'])->name('operator-perizinan.index');
+        Route::get('/operator-perizinan/create', [OperatorPerizinanController::class, 'create'])->name('operator-perizinan.create');
+        Route::get('/operator-perizinan/edit/{id}', [OperatorPerizinanController::class, 'edit'])->name('operator-perizinan.edit');
+        Route::post('/operator-perizinan/store', [OperatorPerizinanController::class, 'store'])->name('operator-perizinan.store');
+        Route::post('/operator-perizinan/update/{id}', [OperatorPerizinanController::class, 'update'])->name('operator-perizinan.update');
+        Route::post('/operator-perizinan/destroy/{id}', [OperatorPerizinanController::class, 'destroy'])->name('operator-perizinan.destroy');
     });
 
     // Mahasiswa

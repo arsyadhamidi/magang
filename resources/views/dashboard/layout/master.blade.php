@@ -242,6 +242,24 @@
                                     </li>
                                 @endif
                             @endif
+                        @elseif (Auth()->user()->level == 'Operator')
+                            <li class="nav-item" data-name="perizinan">
+                                <a href="{{ route('operator-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Data Perizinan
+                                        @php
+                                            $izinStatusCount = \App\Models\Perizinan::where(
+                                                'status',
+                                                'Proses',
+                                            )->count();
+                                        @endphp
+                                        @if ($izinStatusCount)
+                                            <span class="right badge badge-danger">{{ $izinStatusCount ?? '0' }}</span>
+                                        @endif
+                                    </p>
+                                </a>
+                            </li>
                         @endif
                     </ul>
                 </nav>
