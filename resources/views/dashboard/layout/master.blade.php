@@ -182,6 +182,14 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item" data-name="laporanmingguan">
+                                <a href="{{ route('data-laporanmingguan.index') }}" class="nav-link @yield('menuDataLaporanMingguan')">
+                                    <i class="nav-icon fas fa-calendar-alt"></i>
+                                    <p>
+                                        Laporan Mingguan
+                                    </p>
+                                </a>
+                            </li>
                             <li class="nav-item" data-name="userregistrasi">
                                 <a href="{{ route('data-user.index') }}" class="nav-link @yield('menuDataUser')">
                                     <i class="nav-icon fas fa-users"></i>

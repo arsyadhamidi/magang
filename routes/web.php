@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLaporanMingguanController;
 use App\Http\Controllers\Admin\AdminMahasiswaController;
 use App\Http\Controllers\Admin\AdminPerizinanController;
 use App\Http\Controllers\Admin\AdminPerusahaanController;
@@ -56,6 +57,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+
+        // Laporan Mingguan
+        Route::get('/data-laporanmingguan', [AdminLaporanMingguanController::class, 'index'])->name('data-laporanmingguan.index');
+        Route::get('/data-laporanmingguan/create', [AdminLaporanMingguanController::class, 'create'])->name('data-laporanmingguan.create');
+        Route::get('/data-laporanmingguan/edit/{id}', [AdminLaporanMingguanController::class, 'edit'])->name('data-laporanmingguan.edit');
+        Route::post('/data-laporanmingguan/store', [AdminLaporanMingguanController::class, 'store'])->name('data-laporanmingguan.store');
+        Route::post('/data-laporanmingguan/update/{id}', [AdminLaporanMingguanController::class, 'update'])->name('data-laporanmingguan.update');
+        Route::post('/data-laporanmingguan/destroy/{id}', [AdminLaporanMingguanController::class, 'destroy'])->name('data-laporanmingguan.destroy');
 
         // Perizinan
         Route::get('/data-perizinan', [AdminPerizinanController::class, 'index'])->name('data-perizinan.index');
