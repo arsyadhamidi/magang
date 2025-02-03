@@ -20,15 +20,12 @@ class AdminPerusahaanController extends Controller
     {
         $validated = $request->validate([
             'nama_perusahaan' => 'required|max:100',
-            'kuota_perusahaan' => 'required|max:100',
             'telp_perusahaan' => 'required|max:100|regex:/^[0-9]+$/', // Tambahkan validasi angka untuk nomor telepon
             'alamat_perusahaan' => 'required|max:500',
             'deskripsi_perusahaan' => 'required|max:500',
         ], [
             'nama_perusahaan.required' => 'Nama perusahaan wajib diisi.',
             'nama_perusahaan.max' => 'Nama perusahaan tidak boleh lebih dari 100 karakter.',
-            'kuota_perusahaan.required' => 'Kuota perusahaan wajib diisi.',
-            'kuota_perusahaan.max' => 'Kuota perusahaan tidak boleh lebih dari 100 karakter.',
             'telp_perusahaan.required' => 'Nomor telepon perusahaan wajib diisi.',
             'telp_perusahaan.max' => 'Nomor telepon perusahaan tidak boleh lebih dari 100 karakter.',
             'telp_perusahaan.regex' => 'Nomor telepon hanya boleh berisi angka.',
@@ -47,15 +44,12 @@ class AdminPerusahaanController extends Controller
     {
         $validated = $request->validate([
             'nama_perusahaan' => 'required|max:100',
-            'kuota_perusahaan' => 'required|max:100',
             'telp_perusahaan' => 'required|max:100|regex:/^[0-9]+$/', // Tambahkan validasi angka untuk nomor telepon
             'alamat_perusahaan' => 'required|max:500',
             'deskripsi_perusahaan' => 'required|max:500',
         ], [
             'nama_perusahaan.required' => 'Nama perusahaan wajib diisi.',
             'nama_perusahaan.max' => 'Nama perusahaan tidak boleh lebih dari 100 karakter.',
-            'kuota_perusahaan.required' => 'Kuota perusahaan wajib diisi.',
-            'kuota_perusahaan.max' => 'Kuota perusahaan tidak boleh lebih dari 100 karakter.',
             'telp_perusahaan.required' => 'Nomor telepon perusahaan wajib diisi.',
             'telp_perusahaan.max' => 'Nomor telepon perusahaan tidak boleh lebih dari 100 karakter.',
             'telp_perusahaan.regex' => 'Nomor telepon hanya boleh berisi angka.',

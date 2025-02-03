@@ -19,7 +19,6 @@
                                 <tr>
                                     <th style="width: 4%; text-align: center">#</th>
                                     <th>Perusahaan</th>
-                                    <th>Kuota</th>
                                     <th>Telepon</th>
                                     <th>Alamat</th>
                                     <th>Deskripsi</th>
@@ -31,7 +30,6 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $data->nama_perusahaan ?? '-' }}</td>
-                                        <td>{{ $data->kuota_perusahaan ?? '-' }}</td>
                                         <td>{{ $data->telp_perusahaan ?? '-' }}</td>
                                         <td>{{ $data->alamat_perusahaan ?? '-' }}</td>
                                         <td>{{ $data->deskripsi_perusahaan ?? '-' }}</td>
@@ -77,20 +75,6 @@
                                                                                 value="{{ old('telp_perusahaan', $data->telp_perusahaan ?? '-') }}"
                                                                                 placeholder="Masukan telepon perusahaan">
                                                                             @error('telp_perusahaan')
-                                                                                <div class="invalid-feedback">
-                                                                                    {{ $message }}
-                                                                                </div>
-                                                                            @enderror
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-12">
-                                                                        <div class="mb-3">
-                                                                            <label>Kuota Perusahaan</label>
-                                                                            <input type="number" name="kuota_perusahaan"
-                                                                                class="form-control @error('kuota_perusahaan') is-invalid @enderror"
-                                                                                value="{{ old('kuota_perusahaan', $data->kuota_perusahaan ?? '-') }}"
-                                                                                placeholder="Masukan kuota perusahaan">
-                                                                            @error('kuota_perusahaan')
                                                                                 <div class="invalid-feedback">
                                                                                     {{ $message }}
                                                                                 </div>
@@ -184,19 +168,6 @@
                                         class="form-control @error('telp_perusahaan') is-invalid @enderror"
                                         value="{{ old('telp_perusahaan') }}" placeholder="Masukan telepon perusahaan">
                                     @error('telp_perusahaan')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <label>Kuota Perusahaan</label>
-                                    <input type="number" name="kuota_perusahaan"
-                                        class="form-control @error('kuota_perusahaan') is-invalid @enderror"
-                                        value="{{ old('kuota_perusahaan') }}" placeholder="Masukan kuota perusahaan">
-                                    @error('kuota_perusahaan')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
