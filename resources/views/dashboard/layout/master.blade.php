@@ -231,7 +231,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item" data-name="laporanmagang">
-                                    <a href="{{ route('data-laporanmagang.index') }}"
+                                    <a href="{{ route('mahasiswa-laporanmagang.index') }}"
                                         class="nav-link @yield('menuDataLaporanMagang')">
                                         <i class="nav-icon fas fa-comments"></i>
                                         <p>
