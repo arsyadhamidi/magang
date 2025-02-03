@@ -52,7 +52,7 @@
                             value="{{ old('username') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-users"></span>
                             </div>
                         </div>
                         @error('username')
@@ -77,15 +77,15 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <select name="level" class="form-control @error('level') is-invalid @enderror"
-                            id="selectedLevel" style="width: 100%">
-                            <option value="" selected>Pilih Status</option>
-                            <option value="Mahasiswa" {{ old('level') == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa
-                            </option>
-                            <option value="Pegawai" {{ old('level') == 'Pegawai' ? 'selected' : '' }}>Pegawai</option>
-                            <option value="Kepala" {{ old('level') == 'Kepala' ? 'selected' : '' }}>Kepala</option>
+                        <select name="perusahaan_id" class="form-control @error('perusahaan_id') is-invalid @enderror"
+                            id="selectedPerusahaan" style="width: 100%">
+                            <option value="" selected>Pilih Perusahaan</option>
+                            @foreach ($perusahaans as $data)
+                                <option value="{{ $data->id }}"
+                                    {{ $data->id == old('perusahaan_id') ? 'selected' : '' }}>{{ $data->nama_perusahaan ?? '-' }}</option>
+                            @endforeach
                         </select>
-                        @error('level')
+                        @error('perusahaan_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -145,7 +145,7 @@
                 toastr.error("{{ Session::get('error') }}");
             @endif
 
-            $('#selectedLevel').select2({
+            $('#selectedPerusahaan').select2({
                 theme: 'bootstrap4'
             })
         });
