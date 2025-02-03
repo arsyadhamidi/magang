@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('laporan_mingguans', function (Blueprint $table) {
+        Schema::create('laporan_magangs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
             $table->date('tgl_laporan');
             $table->string('status');
-            $table->string('nilai')->nullable();
-            $table->string('file_logbook');
+            $table->text('keterangan')->nullable();
+            $table->string('file_magang');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('laporan_mingguans');
+        Schema::dropIfExists('laporan_magangs');
     }
 };

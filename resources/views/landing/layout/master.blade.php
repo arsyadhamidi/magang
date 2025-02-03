@@ -85,8 +85,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <img src="{{ asset('landing/assets/img/hero-img.png') }}" class="img-fluid"
+                    <div class="col-lg-6 order-1 order-lg-2 text-center">
+                        <img src="{{ asset('images/logo.png') }}" class="img-fluid"
                             alt="Ilustrasi Magang">
                     </div>
                 </div>
@@ -345,97 +345,6 @@
             </div>
 
         </section><!-- /Features Section -->
-
-        <!-- Pricing Section -->
-        <section id="pricing" class="pricing section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Biaya Program Magang</h2>
-                <div><span>Jelajahi</span> <span class="description-title">Pilihan Biaya</span></div>
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="pricing-tem">
-                            <h3 style="color: #20c997;">Program Gratis</h3>
-                            <div class="price"><sup>Rp</sup>0<span> / bulan</span></div>
-                            <div class="icon">
-                                <i class="bi bi-box" style="color: #20c997;"></i>
-                            </div>
-                            <ul>
-                                <li>Akses ke materi dasar</li>
-                                <li>Forum diskusi terbatas</li>
-                                <li>Pengajuan laporan magang</li>
-                                <li class="na">Bimbingan mentor</li>
-                                <li class="na">Jadwal kegiatan</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Daftar Sekarang</a>
-                        </div>
-                    </div><!-- End Pricing Item -->
-
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="pricing-tem">
-                            <span class="featured">Terpopuler</span>
-                            <h3 style="color: #0dcaf0;">Program Starter</h3>
-                            <div class="price"><sup>Rp</sup>500.000<span> / bulan</span></div>
-                            <div class="icon">
-                                <i class="bi bi-send" style="color: #0dcaf0;"></i>
-                            </div>
-                            <ul>
-                                <li>Akses ke semua materi</li>
-                                <li>Bimbingan dari mentor berpengalaman</li>
-                                <li>Forum diskusi interaktif</li>
-                                <li>Jadwal kegiatan teratur</li>
-                                <li class="na">Evaluasi dan umpan balik</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Daftar Sekarang</a>
-                        </div>
-                    </div><!-- End Pricing Item -->
-
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="pricing-tem">
-                            <h3 style="color: #fd7e14;">Program Business</h3>
-                            <div class="price"><sup>Rp</sup>1.000.000<span> / bulan</span></div>
-                            <div class="icon">
-                                <i class="bi bi-airplane" style="color: #fd7e14;"></i>
-                            </div>
-                            <ul>
-                                <li>Semua fitur dari Program Starter</li>
-                                <li>Jadwal kegiatan yang lebih fleksibel</li>
-                                <li>Kesempatan untuk proyek khusus</li>
-                                <li>Networking dengan profesional</li>
-                                <li>Prioritas dalam bimbingan</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Daftar Sekarang</a>
-                        </div>
-                    </div><!-- End Pricing Item -->
-
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="pricing-tem">
-                            <h3 style="color: #0d6efd;">Program Ultimate</h3>
-                            <div class="price"><sup>Rp</sup>1.500.000<span> / bulan</span></div>
-                            <div class="icon">
-                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
-                            </div>
-                            <ul>
-                                <li>Semua fitur dari Program Business</li>
-                                <li>Proyek penelitian dan pengembangan</li>
-                                <li>Kesempatan magang di luar negeri</li>
-                                <li>Mentoring intensif</li>
-                                <li>Umpan balik dan evaluasi mendalam</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Daftar Sekarang</ </div>
-                        </div><!-- End Pricing Item -->
-
-                    </div><!-- End pricing row -->
-
-                </div>
-
-        </section><!-- /Pricing Section -->
 
         <!-- Faq Section -->
         <section id="faq" class="faq section light-background">

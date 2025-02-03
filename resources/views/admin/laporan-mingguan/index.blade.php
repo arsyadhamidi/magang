@@ -19,6 +19,7 @@
                                     <th style="text-align: center;">Nama</th>
                                     <th style="text-align: center;">Tanggal</th>
                                     <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Nilai</th>
                                     <th style="text-align: center;">Aksi</th>
                                 </tr>
                             </thead>
@@ -35,6 +36,7 @@
                                                 <span class="badge badge-warning">{{ $data->status ?? '-' }}</span>
                                             @endif
                                         </td>
+                                        <td>{{ $data->nilai ?? 'Belum Dinilai' }}</td>
                                         <td class="d-flex">
                                             <a href="{{ route('data-laporanmingguan.edit', $data->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fas fa-edit"></i>

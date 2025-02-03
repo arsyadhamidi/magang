@@ -50,7 +50,31 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label>Penilaian</label>
+                                    <select name="nilai" id="selectedNilai"
+                                        class="form-control @error('nilai') is-invalid @enderror" style="width: 100%">
+                                        <option value="" selected>Pilih <P></P>enilaian</option>
+                                        <option value="Sangat Baik" {{ $laporans->nilai == 'Sangat Baik' ? 'selected' : '' }}>
+                                            Sangat Baik</option>
+                                        <option value="Baik" {{ $laporans->nilai == 'Baik' ? 'selected' : '' }}>
+                                            Baik</option>
+                                        <option value="Cukup" {{ $laporans->nilai == 'Cukup' ? 'selected' : '' }}>
+                                            Cukup</option>
+                                        <option value="Kurang Baik" {{ $laporans->nilai == 'Kurang Baik' ? 'selected' : '' }}>
+                                            Kurang Baik</option>
+                                        <option value="Tidak Baik" {{ $laporans->nilai == 'Tidak Baik' ? 'selected' : '' }}>
+                                            Tidak Baik</option>
+                                    </select>
+                                    @error('nilai')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label>Status</label>
                                     <select name="status" id="selectedStatus"
@@ -97,6 +121,9 @@
             theme: 'bootstrap4'
         });
         $('#selectedStatus').select2({
+            theme: 'bootstrap4'
+        });
+        $('#selectedNilai').select2({
             theme: 'bootstrap4'
         });
     </script>

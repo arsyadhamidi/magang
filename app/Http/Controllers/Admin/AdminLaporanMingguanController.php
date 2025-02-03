@@ -56,6 +56,8 @@ class AdminLaporanMingguanController extends Controller
             $validated['file_logbook'] = $request->file('file_logbook')->store('file_logbook');
         }
 
+        $validated['nilai'] = $request->nilai;
+
         LaporanMingguan::create($validated);
 
         return redirect()->route('data-laporanmingguan.index')->with('success', 'Selamat ! Anda berhasil menambahkan data');
@@ -98,6 +100,8 @@ class AdminLaporanMingguanController extends Controller
         }else{
             $validated['file_logbook'] = $laporans->file_logbook;
         }
+
+        $validated['nilai'] = $request->nilai;
 
         $laporans->update($validated);
 
