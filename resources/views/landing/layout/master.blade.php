@@ -77,7 +77,7 @@
                         <p>Selamat datang di platform e-Magang Kementerian Hukum dan Hak Asasi Manusia. Temukan
                             pengalaman magang yang berharga dan tingkatkan keterampilan Anda di dunia hukum.</p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Mulai Magang</a>
+                            <a href="{{ route('login') }}" class="btn-get-started">Mulai Magang</a>
                             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
                                 class="glightbox btn-watch-video d-flex align-items-center">
                                 <i class="bi bi-play-circle"></i>
