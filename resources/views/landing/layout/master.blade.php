@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - eStartup Bootstrap Template</title>
+    <title>E - Magang | Kemenkumham</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -50,30 +50,13 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
-                            <li><a href="#">Dropdown 4</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#reports">Laporan Magang</a></li>
+                    <li><a href="#schedule">Jadwal Tugas</a></li>
+                    <li><a href="#forum">Forum Diskusi</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -90,18 +73,21 @@
             <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-5">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h2>eStartup</h2>
-                        <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae
-                            cumque eum quaerat.</p>
+                        <h2>e-Magang Kemenkumham</h2>
+                        <p>Selamat datang di platform e-Magang Kementerian Hukum dan Hak Asasi Manusia. Temukan
+                            pengalaman magang yang berharga dan tingkatkan keterampilan Anda di dunia hukum.</p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Get Started</a>
+                            <a href="#about" class="btn-get-started">Mulai Magang</a>
                             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
-                                class="glightbox btn-watch-video d-flex align-items-center"><i
-                                    class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                                class="glightbox btn-watch-video d-flex align-items-center">
+                                <i class="bi bi-play-circle"></i>
+                                <span>Tonton Video</span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
-                        <img src="{{ asset('landing/assets/img/hero-img.png') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('landing/assets/img/hero-img.png') }}" class="img-fluid"
+                            alt="Ilustrasi Magang">
                     </div>
                 </div>
             </div>
@@ -112,31 +98,32 @@
 
                         <div class="col-xl-3 col-md-6">
                             <div class="icon-box">
-                                <div class="icon"><i class="bi bi-easel"></i></div>
-                                <h4 class="title"><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+                                <div class="icon"><i class="bi bi-file-earmark-text"></i></div>
+                                <h4 class="title"><a href="#" class="stretched-link">Laporan Magang</a></h4>
                             </div>
-                        </div><!--End Icon Box -->
+                        </div><!-- End Icon Box -->
 
                         <div class="col-xl-3 col-md-6">
                             <div class="icon-box">
-                                <div class="icon"><i class="bi bi-gem"></i></div>
-                                <h4 class="title"><a href="" class="stretched-link">Sed ut perspiciatis</a></h4>
+                                <div class="icon"><i class="bi bi-person-check"></i></div>
+                                <h4 class="title"><a href="#" class="stretched-link">Mentor Berpengalaman</a>
+                                </h4>
                             </div>
-                        </div><!--End Icon Box -->
+                        </div><!-- End Icon Box -->
 
                         <div class="col-xl-3 col-md-6">
                             <div class="icon-box">
-                                <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                                <h4 class="title"><a href="" class="stretched-link">Magni Dolores</a></h4>
+                                <div class="icon"><i class="bi bi-calendar-event"></i></div>
+                                <h4 class="title"><a href="#" class="stretched-link">Jadwal Magang</a></h4>
                             </div>
-                        </div><!--End Icon Box -->
+                        </div><!-- End Icon Box -->
 
                         <div class="col-xl-3 col-md-6">
                             <div class="icon-box">
-                                <div class="icon"><i class="bi bi-command"></i></div>
-                                <h4 class="title"><a href="" class="stretched-link">Nemo Enim</a></h4>
+                                <div class="icon"><i class="bi bi-chat-dots"></i></div>
+                                <h4 class="title"><a href="#" class="stretched-link">Forum Diskusi</a></h4>
                             </div>
-                        </div><!--End Icon Box -->
+                        </div><!-- End Icon Box -->
 
                     </div>
                 </div>
@@ -152,23 +139,21 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-                        <p class="who-we-are">Who We Are</p>
-                        <h3>Unleashing Potential with Creative Strategy</h3>
+                        <p class="who-we-are">Tentang Kami</p>
+                        <h3>Mengembangkan Potensi Melalui Pengalaman Magang</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            Kami adalah platform e-Magang Kementerian Hukum dan Hak Asasi Manusia yang bertujuan untuk
+                            memberikan pengalaman magang yang berharga bagi mahasiswa.
                         </p>
                         <ul>
-                            <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</span></li>
-                            <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.</span></li>
-                            <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                    storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                            <li><i class="bi bi-check-circle"></i> <span>Memberikan kesempatan belajar langsung di
+                                    lingkungan hukum.</span></li>
+                            <li><i class="bi bi-check-circle"></i> <span>Mentor berpengalaman siap membimbing
+                                    Anda.</span></li>
+                            <li><i class="bi bi-check-circle"></i> <span>Fasilitas dan sumber daya untuk mendukung
+                                    proses belajar Anda.</span></li>
                         </ul>
-                        <a href="#" class="read-more"><span>Read More</span><i
+                        <a href="#" class="read-more"><span>Selengkapnya</span><i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
 
@@ -176,22 +161,21 @@
                         <div class="row gy-4">
                             <div class="col-lg-6">
                                 <img src="{{ asset('landing/assets/img/about-company-1.jpg') }}" class="img-fluid"
-                                    alt="">
+                                    alt="Kegiatan Magang 1">
                             </div>
                             <div class="col-lg-6">
                                 <div class="row gy-4">
                                     <div class="col-lg-12">
                                         <img src="{{ asset('landing/assets/img/about-company-2.jpg') }}"
-                                            class="img-fluid" alt="">
+                                            class="img-fluid" alt="Kegiatan Magang 2">
                                     </div>
                                     <div class="col-lg-12">
                                         <img src="{{ asset('landing/assets/img/about-company-3.jpg') }}"
-                                            class="img-fluid" alt="">
+                                            class="img-fluid" alt="Kegiatan Magang 3">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
@@ -204,8 +188,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Services</h2>
-                <div><span>Check Our</span> <span class="description-title">Services</span></div>
+                <h2>Layanan Kami</h2>
+                <div><span>Jelajahi</span> <span class="description-title">Layanan Kami</span></div>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -213,83 +197,74 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-item  position-relative">
+                        <div class="service-item position-relative">
                             <div class="icon">
-                                <i class="bi bi-activity"></i>
+                                <i class="bi bi-file-earmark-text"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Nesciunt Mete</h3>
+                                <h3>Pengajuan Laporan Magang</h3>
                             </a>
-                            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores
-                                iure perferendis tempore et consequatur.</p>
+                            <p>Fasilitas untuk mengajukan laporan magang secara online dengan panduan yang jelas.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-item position-relative">
                             <div class="icon">
-                                <i class="bi bi-broadcast"></i>
+                                <i class="bi bi-person-check"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Eosle Commodi</h3>
+                                <h3>Mentoring oleh Profesional</h3>
                             </a>
-                            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum
-                                hic non ut nesciunt dolorem.</p>
+                            <p>Program mentoring yang dipandu oleh profesional berpengalaman di bidang hukum.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-item position-relative">
                             <div class="icon">
-                                <i class="bi bi-easel"></i>
+                                <i class="bi bi-calendar-event"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Ledo Markt</h3>
+                                <h3>Jadwal Kegiatan Magang</h3>
                             </a>
-                            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id
-                                voluptas adipisci eos earum corrupti.</p>
+                            <p>Informasi lengkap mengenai jadwal kegiatan dan tugas selama magang.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-item position-relative">
                             <div class="icon">
-                                <i class="bi bi-bounding-box-circles"></i>
+                                <i class="bi bi-chat-dots"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Asperiores Commodit</h3>
+                                <h3>Forum Diskusi</h3>
                             </a>
-                            <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga
-                                sit provident adipisci neque.</p>
-                            <a href="service-details.html" class="stretched-link"></a>
+                            <p>Ruang untuk berdiskusi dan berbagi pengalaman antara peserta magang.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                         <div class="service-item position-relative">
                             <div class="icon">
-                                <i class="bi bi-calendar4-week"></i>
+                                <i class="bi bi-people"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Velit Doloremque</h3>
+                                <h3>Komunitas Magang</h3>
                             </a>
-                            <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed
-                                animi at autem alias eius labore.</p>
-                            <a href="service-details.html" class="stretched-link"></a>
+                            <p>Bergabung dengan komunitas magang untuk membangun jaringan dan kolaborasi.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                         <div class="service-item position-relative">
                             <div class="icon">
-                                <i class="bi bi-chat-square-text"></i>
+                                <i class="bi bi-file-earmark-check"></i>
                             </div>
                             <a href="service-details.html" class="stretched-link">
-                                <h3>Dolori Architecto</h3>
+                                <h3>Evaluasi dan Umpan Balik</h3>
                             </a>
-                            <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure.
-                                Corrupti recusandae ducimus enim.</p>
-                            <a href="service-details.html" class="stretched-link"></a>
+                            <p>Proses evaluasi untuk memberikan umpan balik yang konstruktif bagi peserta magang.</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -304,8 +279,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Features</h2>
-                <div><span>Check Our</span> <span class="description-title">Features</span></div>
+                <h2>Fitur Unggulan</h2>
+                <div><span>Jelajahi</span> <span class="description-title">Fitur Kami</span></div>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -313,8 +288,8 @@
                 <div class="row gy-5 justify-content-between">
 
                     <div class="col-xl-5" data-aos="zoom-out" data-aos-delay="100">
-                        <img src="assets/assets/img//template/eStartup/features.svg" class="img-fluid"
-                            alt="">
+                        <img src="{{ asset('landing/assets/img/about-company-3.jpg') }}" class="img-fluid"
+                            alt="Ilustrasi Fitur">
                     </div>
 
                     <div class="col-xl-6 d-flex">
@@ -323,42 +298,42 @@
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-check"></i>
-                                    <h3>Eos aspernatur rem</h3>
+                                    <h3>Pengajuan Laporan Mudah</h3>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-check"></i>
-                                    <h3>Facilis neque ipsa</h3>
+                                    <h3>Mentor Berpengalaman</h3>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-check"></i>
-                                    <h3>Volup amet volupt</h3>
+                                    <h3>Jadwal Kegiatan Teratur</h3>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-check"></i>
-                                    <h3>Rerum omnis sint</h3>
+                                    <h3>Forum Diskusi Interaktif</h3>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-check"></i>
-                                    <h3>Alias possimus</h3>
+                                    <h3>Komunitas Magang</h3>
                                 </div>
                             </div><!-- End Feature Item -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-check"></i>
-                                    <h3>Repellendus molli</h3>
+                                    <h3>Evaluasi dan Umpan Balik</h3>
                                 </div>
                             </div><!-- End Feature Item -->
 
@@ -376,8 +351,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Pricing</h2>
-                <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
+                <h2>Biaya Program Magang</h2>
+                <div><span>Jelajahi</span> <span class="description-title">Pilihan Biaya</span></div>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -386,80 +361,79 @@
 
                     <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-tem">
-                            <h3 style="color: #20c997;">Free Plan</h3>
-                            <div class="price"><sup>$</sup>0<span> / mo</span></div>
+                            <h3 style="color: #20c997;">Program Gratis</h3>
+                            <div class="price"><sup>Rp</sup>0<span> / bulan</span></div>
                             <div class="icon">
                                 <i class="bi bi-box" style="color: #20c997;"></i>
                             </div>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li class="na">Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
+                                <li>Akses ke materi dasar</li>
+                                <li>Forum diskusi terbatas</li>
+                                <li>Pengajuan laporan magang</li>
+                                <li class="na">Bimbingan mentor</li>
+                                <li class="na">Jadwal kegiatan</li>
                             </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
+                            <a href="#" class="btn-buy">Daftar Sekarang</a>
                         </div>
                     </div><!-- End Pricing Item -->
 
                     <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                         <div class="pricing-tem">
-                            <span class="featured">Featured</span>
-                            <h3 style="color: #0dcaf0;">Starter Plan</h3>
-                            <div class="price"><sup>$</sup>19<span> / mo</span></div>
+                            <span class="featured">Terpopuler</span>
+                            <h3 style="color: #0dcaf0;">Program Starter</h3>
+                            <div class="price"><sup>Rp</sup>500.000<span> / bulan</span></div>
                             <div class="icon">
                                 <i class="bi bi-send" style="color: #0dcaf0;"></i>
                             </div>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
+                                <li>Akses ke semua materi</li>
+                                <li>Bimbingan dari mentor berpengalaman</li>
+                                <li>Forum diskusi interaktif</li>
+                                <li>Jadwal kegiatan teratur</li>
+                                <li class="na">Evaluasi dan umpan balik</li>
                             </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
+                            <a href="#" class="btn-buy">Daftar Sekarang</a>
                         </div>
                     </div><!-- End Pricing Item -->
 
                     <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                         <div class="pricing-tem">
-                            <h3 style="color: #fd7e14;">Business Plan</h3>
-                            <div class="price"><sup>$</sup>29<span> / mo</span></div>
+                            <h3 style="color: #fd7e14;">Program Business</h3>
+                            <div class="price"><sup>Rp</sup>1.000.000<span> / bulan</span></div>
                             <div class="icon">
                                 <i class="bi bi-airplane" style="color: #fd7e14;"></i>
                             </div>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
+                                <li>Semua fitur dari Program Starter</li>
+                                <li>Jadwal kegiatan yang lebih fleksibel</li>
+                                <li>Kesempatan untuk proyek khusus</li>
+                                <li>Networking dengan profesional</li>
+                                <li>Prioritas dalam bimbingan</li>
                             </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
+                            <a href="#" class="btn-buy">Daftar Sekarang</a>
                         </div>
                     </div><!-- End Pricing Item -->
 
                     <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
-                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
-                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
+                            <h3 style="color: #0d6efd;">Program Ultimate</h3>
+                            <div class="price"><sup>Rp</sup>1.500.000<span> / bulan</span></div>
                             <div class="icon">
                                 <i class="bi bi-rocket" style="color: #0d6efd;"></i>
                             </div>
                             <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
+                                <li>Semua fitur dari Program Business</li>
+                                <li>Proyek penelitian dan pengembangan</li>
+                                <li>Kesempatan magang di luar negeri</li>
+                                <li>Mentoring intensif</li>
+                                <li>Umpan balik dan evaluasi mendalam</li>
                             </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
-                        </div>
-                    </div><!-- End Pricing Item -->
+                            <a href="#" class="btn-buy">Daftar Sekarang</ </div>
+                        </div><!-- End Pricing Item -->
 
-                </div><!-- End pricing row -->
+                    </div><!-- End pricing row -->
 
-            </div>
+                </div>
 
         </section><!-- /Pricing Section -->
 
@@ -472,10 +446,10 @@
 
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="content px-xl-5">
-                            <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
+                            <h3><span>Pertanyaan yang Sering Diajukan</span></h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                                Berikut adalah beberapa pertanyaan yang sering diajukan mengenai program magang di
+                                Kementerian Hukum dan Hak Asasi Manusia.
                             </p>
                         </div>
                     </div>
@@ -484,61 +458,51 @@
 
                         <div class="faq-container">
                             <div class="faq-item faq-active">
-                                <h3><span class="num">1.</span> <span>Non consectetur a erat nam at lectus urna
-                                        duis?</span></h3>
+                                <h3><span class="num">1.</span> <span>Bagaimana cara mendaftar untuk program
+                                        magang?</span></h3>
                                 <div class="faq-content">
-                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
-                                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
-                                        rhoncus dolor purus non.</p>
+                                    <p>Anda dapat mendaftar melalui situs web kami dengan mengisi formulir pendaftaran
+                                        dan mengunggah dokumen yang diperlukan.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3><span class="num">2.</span> <span>Feugiat scelerisque varius morbi enim nunc
-                                        faucibus a pellentesque?</span></h3>
+                                <h3><span class="num">2.</span> <span>Apakah ada biaya untuk mengikuti program
+                                        magang?</span></h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>Program magang kami menawarkan beberapa pilihan biaya, termasuk program gratis.
+                                        Silakan lihat bagian harga untuk informasi lebih lanjut.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3><span class="num">3.</span> <span>Dolor sit amet consectetur adipiscing elit
-                                        pellentesque?</span></h3>
+                                <h3><span class="num">3.</span> <span>Siapa yang akan menjadi mentor saya selama
+                                        magang?</span></h3>
                                 <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
-                                        Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
-                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
-                                        convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                                    </p>
+                                    <p>Anda akan dibimbing oleh profesional berpengalaman di bidang hukum yang akan
+                                        membantu Anda selama proses magang.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3><span class="num">4.</span> <span>Ac odio tempor orci dapibus. Aliquam eleifend
-                                        mi in nulla?</span></h3>
+                                <h3><span class="num">4.</span> <span>Bagaimana cara mengajukan laporan
+                                        magang?</span></h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>Anda dapat mengajukan laporan magang melalui portal kami dengan mengikuti
+                                        petunjuk yang telah disediakan.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3><span class="num">5.</span> <span>Tempus quam pellentesque nec nam aliquam sem
-                                        et tortor consequat?</span></h3>
+                                <h3><span class="num">5.</span> <span>Apakah ada kesempatan untuk magang di luar
+                                        negeri?</span></h3>
                                 <div class="faq-content">
-                                    <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse
-                                        in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                        suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                    </p>
+                                    <p>Kami menawarkan kesempatan magang di luar negeri tergantung pada program dan
+                                        ketersediaan. Silakan hubungi kami untuk informasi lebih lanjut.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -557,8 +521,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Contact</h2>
-                <div><span>Need Help?</span> <span class="description-title">Contact Us</span></div>
+                <h2>Kontak Kami</h2>
+                <div><span>Butuh Bantuan?</span> <span class="description-title">Hubungi Kami</span></div>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade" data-aos-delay="100">
@@ -569,24 +533,24 @@
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                             <i class="bi bi-geo-alt flex-shrink-0"></i>
                             <div>
-                                <h3>Address</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <h3>Alamat</h3>
+                                <p>Jalan Hukum No. 1, Jakarta, Indonesia</p>
                             </div>
                         </div><!-- End Info Item -->
 
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                             <i class="bi bi-telephone flex-shrink-0"></i>
                             <div>
-                                <h3>Call Us</h3>
-                                <p>+1 5589 55488 55</p>
+                                <h3>Hubungi Kami</h3>
+                                <p>+62 21 1234 5678</p>
                             </div>
                         </div><!-- End Info Item -->
 
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
-                                <h3>Email Us</h3>
-                                <p>info@example.com</p>
+                                <h3>Email Kami</h3>
+                                <p>info@kemenkumham.go.id</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -599,29 +563,29 @@
 
                                 <div class="col-md-6">
                                     <input type="text" name="name" class="form-control"
-                                        placeholder="Your Name" required="">
+                                        placeholder="Nama Anda" required="">
                                 </div>
 
-                                <div class="col-md-6 ">
+                                <div class="col-md-6">
                                     <input type="email" class="form-control" name="email"
-                                        placeholder="Your Email" required="">
+                                        placeholder="Email Anda" required="">
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                    <input type="text" class="form-control" name="subject" placeholder="Subjek"
                                         required="">
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required=""></textarea>
                                 </div>
 
                                 <div class="col-md-12 text-center">
                                     <div class="loading">Loading</div>
                                     <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                    <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
 
-                                    <button type="submit">Send Message</button>
+                                    <button type="submit">Kirim Pesan</button>
                                 </div>
 
                             </div>
@@ -639,22 +603,24 @@
     <footer id="footer" class="footer light-background">
 
         <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">eStartup</strong> <span>All Rights
-                        Reserved</span></p>
+            <div class="copyright text-center">
+                <p>© <span>Hak Cipta</span> <strong class="px-1 sitename">e-Magang Kemenkumham</strong> <span>Semua Hak
+                        Dilindungi</span></p>
             </div>
             <div class="social-links d-flex justify-content-center">
-                <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/kemenkumhamri" target="_blank"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.facebook.com/kemenkumham" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/kemenkumhamri/" target="_blank"><i
+                        class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/kemenkumhamri/" target="_blank"><i
+                        class="bi bi-linkedin"></i></a>
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you've purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Dirancang oleh <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
 
