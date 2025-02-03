@@ -224,7 +224,7 @@
                             <h1 class="m-0">Dashboard</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
-                            <h4 class="float-sm-right">{{ \Carbon\Carbon::now()->format('d F Y') }}</h4>
+                            <h4 class="float-sm-right">{{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</h4>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->

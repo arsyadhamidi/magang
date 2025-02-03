@@ -34,17 +34,24 @@
                                                 <span class="badge badge-success">{{ $data->status ?? '-' }}</span>
                                             @elseif($data->status == 'Proses')
                                                 <span class="badge badge-warning">{{ $data->status ?? '-' }}</span>
+                                            @elseif($data->status == 'Ditolak')
+                                                <span class="badge badge-danger">{{ $data->status ?? '-' }}</span>
+                                            @else
+                                                <span class="badge badge-secondary">{{ $data->status ?? '-' }}</span>
                                             @endif
                                         </td>
                                         <td>{{ $data->keterangan ?? '-' }}</td>
                                         <td class="d-flex">
-                                            <a href="{{ route('data-laporanmagang.edit', $data->id) }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('data-laporanmagang.edit', $data->id) }}"
+                                                class="btn btn-sm btn-primary">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="{{ asset('storage/' . $data->file_magang) }}" class="btn btn-sm btn-info mx-2" target="_blank">
+                                            <a href="{{ asset('storage/' . $data->file_magang) }}"
+                                                class="btn btn-sm btn-info mx-2" target="_blank">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <form action="{{ route('data-laporanmagang.destroy', $data->id) }}" method="POST">
+                                            <form action="{{ route('data-laporanmagang.destroy', $data->id) }}"
+                                                method="POST">
                                                 @csrf
                                                 <button class="btn btn-sm btn-danger"
                                                     onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?');">
