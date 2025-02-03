@@ -242,9 +242,48 @@
                                     </li>
                                 @endif
                             @endif
+                        @elseif (Auth()->user()->level == 'Supervisor')
+                            <li class="nav-item" data-name="laporanmingguan">
+                                <a href="{{ route('supervisor-laporanmingguan.index') }}"
+                                    class="nav-link @yield('menuDataLaporanMingguan')">
+                                    <i class="nav-icon fas fa-calendar-alt"></i>
+                                    <p>
+                                        Laporan Mingguan
+                                        @php
+                                            $mingguanStatusCount = \App\Models\LaporanMingguan::where(
+                                                'status',
+                                                'Proses',
+                                            )->count();
+                                        @endphp
+                                        @if ($mingguanStatusCount)
+                                            <span
+                                                class="right badge badge-danger">{{ $mingguanStatusCount ?? '0' }}</span>
+                                        @endif
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" data-name="laporanmagang">
+                                <a href="{{ route('data-laporanmagang.index') }}" class="nav-link @yield('menuDataLaporanMagang')">
+                                    <i class="nav-icon fas fa-comments"></i>
+                                    <p>
+                                        Laporan Magang
+                                        @php
+                                            $magangStatusCount = \App\Models\LaporanMagang::where(
+                                                'status',
+                                                'Proses',
+                                            )->count();
+                                        @endphp
+                                        @if ($magangStatusCount)
+                                            <span
+                                                class="right badge badge-danger">{{ $magangStatusCount ?? '0' }}</span>
+                                        @endif
+                                    </p>
+                                </a>
+                            </li>
                         @elseif (Auth()->user()->level == 'Operator')
                             <li class="nav-item" data-name="perizinan">
-                                <a href="{{ route('operator-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
+                                <a href="{{ route('operator-perizinan.index') }}"
+                                    class="nav-link @yield('menuDataPerizinan')">
                                     <i class="nav-icon fas fa-book"></i>
                                     <p>
                                         Data Perizinan
@@ -255,7 +294,8 @@
                                             )->count();
                                         @endphp
                                         @if ($izinStatusCount)
-                                            <span class="right badge badge-danger">{{ $izinStatusCount ?? '0' }}</span>
+                                            <span
+                                                class="right badge badge-danger">{{ $izinStatusCount ?? '0' }}</span>
                                         @endif
                                     </p>
                                 </a>

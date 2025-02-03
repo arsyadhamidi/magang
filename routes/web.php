@@ -20,6 +20,7 @@ use App\Http\Controllers\Pegawai\PegawaiMahasiswaController;
 use App\Http\Controllers\Pegawai\PegawaiPerizinanController;
 use App\Http\Controllers\Pegawai\PegawaiPerusahaanController;
 use App\Http\Controllers\Setting\SettingController;
+use App\Http\Controllers\Supervisor\SupervisorLaporanMingguan;
 use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Route;
 
@@ -91,6 +92,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-user/store', [AdminUserController::class, 'store'])->name('data-user.store');
         Route::post('/data-user/update/{id}', [AdminUserController::class, 'update'])->name('data-user.update');
         Route::post('/data-user/destroy/{id}', [AdminUserController::class, 'destroy'])->name('data-user.destroy');
+    });
+
+    // Supervisor
+    Route::group(['middleware' => [CekLevel::class . ':Supervisor']], function () {
+        // Laporan Mingguan
+        Route::get('/supervisor-laporanmingguan', [SupervisorLaporanMingguan::class, 'index'])->name('supervisor-laporanmingguan.index');
+        Route::get('/supervisor-laporanmingguan/edit/{id}', [SupervisorLaporanMingguan::class, 'edit'])->name('supervisor-laporanmingguan.edit');
+        Route::post('/supervisor-laporanmingguan/update/{id}', [SupervisorLaporanMingguan::class, 'update'])->name('supervisor-laporanmingguan.update');
     });
 
     // Operator

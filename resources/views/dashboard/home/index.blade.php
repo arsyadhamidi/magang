@@ -7,6 +7,8 @@
         @include('mahasiswa.index')
     @elseif (Auth()->user()->level == 'Operator')
         @include('operator.index')
+    @elseif (Auth()->user()->level == 'Supervisor')
+        @include('supervisor.index')
     @endif
 @endsection
 @push('custom-script')
