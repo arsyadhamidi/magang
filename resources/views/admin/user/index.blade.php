@@ -16,12 +16,19 @@
                                         <select name="level" class="form-control @error('level') is-invalid @enderror"
                                             id="selectedLevelSearch" style="width: 100%">
                                             <option value="" selected>Pilih Status</option>
+                                            <option value="Admin" {{ request('level') == 'Admin' ? 'selected' : '' }}>
+                                                Admin
+                                            </option>
                                             <option value="Mahasiswa"
                                                 {{ request('level') == 'Mahasiswa' ? 'selected' : '' }}>
                                                 Mahasiswa
                                             </option>
-                                            <option value="Pegawai" {{ request('level') == 'Pegawai' ? 'selected' : '' }}>
-                                                Pegawai
+                                            <option value="Operator" {{ request('level') == 'Operator' ? 'selected' : '' }}>
+                                                Operator
+                                            </option>
+                                            <option value="Supervisor"
+                                                {{ request('level') == 'Supervisor' ? 'selected' : '' }}>
+                                                Supervisor
                                             </option>
                                             <option value="Kepala" {{ request('level') == 'Kepala' ? 'selected' : '' }}>
                                                 Kepala
@@ -63,6 +70,7 @@
                                     <th>Username</th>
                                     <th>Password</th>
                                     <th>Telepon</th>
+                                    <th>Perusahaan</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -75,6 +83,7 @@
                                         <td>{{ $data->username ?? '-' }}</td>
                                         <td>{{ $data->duplicate ?? '-' }}</td>
                                         <td>{{ $data->telp ?? '-' }}</td>
+                                        <td>{{ $data->perusahaan->nama_perusahaan ?? '-' }}</td>
                                         <td>{{ $data->level ?? '-' }}</td>
                                         <td class="d-flex">
                                             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal"
@@ -153,19 +162,47 @@
                                                                     </div>
                                                                     <div class="col-lg-12">
                                                                         <div class="mb-3">
+                                                                            <label>Perusahaan</label>
+                                                                            <select name="perusahaan_id"
+                                                                                class="form-control @error('perusahaan_id') is-invalid @enderror"
+                                                                                id="selectedPerusahaanEdit" style="width: 100%">
+                                                                                <option value="" selected>Pilih Perusahaan</option>
+                                                                                @foreach ($perusahaans as $val)
+                                                                                    <option value="{{ $val->id }}" {{ $data->perusahaan_id == $val->id ? 'selected' : '' }}>
+                                                                                        {{ $val->nama_perusahaan ?? '-' }}
+                                                                                    </option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                            @error('perusahaan_id')
+                                                                                <div class="invalid-feedback">
+                                                                                    {{ $message }}
+                                                                                </div>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <div class="mb-3">
                                                                             <label>Status Pengguna</label>
                                                                             <select name="level"
                                                                                 class="form-control @error('level') is-invalid @enderror"
                                                                                 id="selectedLevelEdit" style="width: 100%">
                                                                                 <option value="" selected>Pilih Status
                                                                                 </option>
+                                                                                <option value="Admin"
+                                                                                    {{ $data->level == 'Admin' ? 'selected' : '' }}>
+                                                                                    Admin
+                                                                                </option>
                                                                                 <option value="Mahasiswa"
                                                                                     {{ $data->level == 'Mahasiswa' ? 'selected' : '' }}>
                                                                                     Mahasiswa
                                                                                 </option>
-                                                                                <option value="Pegawai"
-                                                                                    {{ $data->level == 'Pegawai' ? 'selected' : '' }}>
-                                                                                    Pegawai
+                                                                                <option value="Operator"
+                                                                                    {{ $data->level == 'Operator' ? 'selected' : '' }}>
+                                                                                    Operator
+                                                                                </option>
+                                                                                <option value="Supervisor"
+                                                                                    {{ $data->level == 'Supervisor' ? 'selected' : '' }}>
+                                                                                    Supervisor
                                                                                 </option>
                                                                                 <option value="Kepala"
                                                                                     {{ $data->level == 'Kepala' ? 'selected' : '' }}>
@@ -275,14 +312,41 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="mb-3">
+                                    <label>Perusahaan</label>
+                                    <select name="perusahaan_id"
+                                        class="form-control @error('perusahaan_id') is-invalid @enderror"
+                                        id="selectedPerusahaan" style="width: 100%">
+                                        <option value="" selected>Pilih Perusahaan</option>
+                                        @foreach ($perusahaans as $data)
+                                            <option value="{{ $data->id }}" {{ old('perusahaan_id') == $data->id ? 'selected' : '' }}>
+                                                {{ $data->nama_perusahaan ?? '-' }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('perusahaan_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
                                     <label>Status Pengguna</label>
                                     <select name="level" class="form-control @error('level') is-invalid @enderror"
                                         id="selectedLevel" style="width: 100%">
                                         <option value="" selected>Pilih Status</option>
+                                        <option value="Admin" {{ old('level') == 'Admin' ? 'selected' : '' }}>
+                                            Admin
+                                        </option>
                                         <option value="Mahasiswa" {{ old('level') == 'Mahasiswa' ? 'selected' : '' }}>
                                             Mahasiswa
                                         </option>
-                                        <option value="Pegawai" {{ old('level') == 'Pegawai' ? 'selected' : '' }}>Pegawai
+                                        <option value="Operator" {{ old('level') == 'Operator' ? 'selected' : '' }}>
+                                            Operator
+                                        </option>
+                                        <option value="Supervisor" {{ old('level') == 'Supervisor' ? 'selected' : '' }}>
+                                            Supervisor
                                         </option>
                                         <option value="Kepala" {{ old('level') == 'Kepala' ? 'selected' : '' }}>Kepala
                                         </option>
@@ -311,7 +375,13 @@
             $('#selectedLevel').select2({
                 theme: 'bootstrap4'
             });
+            $('#selectedPerusahaan').select2({
+                theme: 'bootstrap4'
+            });
             $('#selectedLevelEdit').select2({
+                theme: 'bootstrap4'
+            });
+            $('#selectedPerusahaanEdit').select2({
                 theme: 'bootstrap4'
             });
             $('#selectedLevelSearch').select2({
