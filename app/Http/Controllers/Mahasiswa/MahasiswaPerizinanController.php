@@ -3,103 +3,143 @@
 namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
-use App\Models\Mahasiswa;
 use App\Models\Perizinan;
-use App\Models\Perusahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class MahasiswaPerizinanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $perusahaans = Perusahan::latest()->get();
+        $query = Perizinan::where('users_id', Auth()->user()->id);
+
+        // Filter berdasarkan status
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        // Dapatkan data berdasarkan filter
+        $izins = $query->latest()->get();
+
         return view('mahasiswa.perizinan.index', [
-            'perusahaans' => $perusahaans,
+            'izins' => $izins,
         ]);
     }
 
-    public function show($id)
+    public function create()
     {
-        $perusahaans = Perusahan::where('id', $id)->first();
-        return view('mahasiswa.perizinan.show', [
-            'perusahaans' => $perusahaans,
-        ]);
+        return view('mahasiswa.perizinan.create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'tgl_mulai' => 'required|date',
-            'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
-            'keterangan' => 'nullable|string|max:500',
+    $validated = $request->validate([
+            'nama' => 'required|max:255',
+            'tmp_lahir' => 'required|max:255',
+            'tgl_lahir' => 'required|date',
+            'jk' => 'required|max:255',
+            'telp' => 'required|max:255',
+            'universitas' => 'required|max:255',
+            'surat_permohonan' => 'required|max:10248|mimes:pdf',
+            'alamat' => 'required|max:500',
         ], [
-            'tgl_mulai.required' => 'Tanggal mulai wajib diisi.',
-            'tgl_mulai.date' => 'Tanggal mulai harus berupa format tanggal yang valid.',
-            'tgl_selesai.required' => 'Tanggal selesai wajib diisi.',
-            'tgl_selesai.date' => 'Tanggal selesai harus berupa format tanggal yang valid.',
-            'tgl_selesai.after_or_equal' => 'Tanggal selesai harus setelah atau sama dengan tanggal mulai.',
-            'keterangan.string' => 'Keterangan harus berupa teks.',
-            'keterangan.max' => 'Keterangan maksimal 500 karakter.',
+            'nama.required' => 'Nama harus diisi.',
+            'nama.max' => 'Nama tidak boleh lebih dari 255 karakter.',
+            'tmp_lahir.required' => 'Tempat lahir harus diisi.',
+            'tmp_lahir.max' => 'Tempat lahir tidak boleh lebih dari 255 karakter.',
+            'tgl_lahir.required' => 'Tanggal lahir harus diisi.',
+            'tgl_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid.',
+            'jk.required' => 'Jenis kelamin harus dipilih.',
+            'jk.max' => 'Jenis kelamin tidak boleh lebih dari 255 karakter.',
+            'telp.required' => 'Nomor telepon harus diisi.',
+            'telp.max' => 'Nomor telepon tidak boleh lebih dari 255 karakter.',
+            'universitas.required' => 'Universitas harus diisi.',
+            'universitas.max' => 'Universitas tidak boleh lebih dari 255 karakter.',
+            'surat_permohonan.required' => 'Surat permohonan harus diunggah.',
+            'surat_permohonan.max' => 'Ukuran surat permohonan tidak boleh lebih dari 10 MB.',
+            'surat_permohonan.mimes' => 'Surat permohonan harus berupa file PDF.',
+            'alamat.required' => 'Alamat harus diisi.',
+            'alamat.max' => 'Alamat tidak boleh lebih dari 500 karakter.',
         ]);
 
-        $users = Auth::user();
-        $mahasiswas = Mahasiswa::where('users_id', $users->id)->first();
-        $perusahaans = Perusahan::where('id', $request->perusahaan_id)->first();
-
-        if (empty($perusahaans)) {
-            return back()->with('error', 'Maaf ! Data Perusahaan tidak ditemukan!');
+        if($request->surat_permohonan){
+            $validated['surat_permohonan'] = $request->file('surat_permohonan')->store('surat_permohonan');
         }
 
-        if (empty($mahasiswas)) {
-            return back()->with('error', 'Maaf ! Data Mahasiswa anda belum tersedia, silahkan isi biodata mahasisa!');
-        }
+        $validated['users_id'] = Auth::user()->id;
+        $validated['status'] = 'Proses';
 
-        if ($perusahaans->kuota_perusahaan <= 0) {
-            return back()->with('error', 'Kuota perusahaan tidak tersedia lagi!');
-        }
+        Perizinan::create($validated);
 
-        $perusahaans->update([
-            'kuota_perusahaan' => $perusahaans->kuota_perusahaan - 1,
+        return redirect()->route('mahasiswa-perizinan.index')->with('success', 'Selamat ! Anda berhasil menambahkan data');
+    }
+
+    public function edit($id)
+    {
+        $izins = Perizinan::where('id', $id)->first();
+        return view('mahasiswa.perizinan.edit', [
+            'izins' => $izins,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|max:255',
+            'tmp_lahir' => 'required|max:255',
+            'tgl_lahir' => 'required|date',
+            'jk' => 'required|max:255',
+            'telp' => 'required|max:255',
+            'universitas' => 'required|max:255',
+            'surat_permohonan' => 'nullable|max:10248|mimes:pdf',
+            'alamat' => 'required|max:500',
+        ], [
+            'nama.required' => 'Nama harus diisi.',
+            'nama.max' => 'Nama tidak boleh lebih dari 255 karakter.',
+            'tmp_lahir.required' => 'Tempat lahir harus diisi.',
+            'tmp_lahir.max' => 'Tempat lahir tidak boleh lebih dari 255 karakter.',
+            'tgl_lahir.required' => 'Tanggal lahir harus diisi.',
+            'tgl_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid.',
+            'jk.required' => 'Jenis kelamin harus dipilih.',
+            'jk.max' => 'Jenis kelamin tidak boleh lebih dari 255 karakter.',
+            'telp.required' => 'Nomor telepon harus diisi.',
+            'telp.max' => 'Nomor telepon tidak boleh lebih dari 255 karakter.',
+            'universitas.required' => 'Universitas harus diisi.',
+            'universitas.max' => 'Universitas tidak boleh lebih dari 255 karakter.',
+            'surat_permohonan.max' => 'Ukuran surat permohonan tidak boleh lebih dari 10 MB.',
+            'surat_permohonan.mimes' => 'Surat permohonan harus berupa file PDF.',
+            'alamat.required' => 'Alamat harus diisi.',
+            'alamat.max' => 'Alamat tidak boleh lebih dari 500 karakter.',
         ]);
 
-        Perizinan::create([
-            'perusahaan_id' => $request->perusahaan_id,
-            'mahasiswa_id' => $mahasiswas->id,
-            'tgl_mulai' => $request->tgl_mulai,
-            'tgl_selesai' => $request->tgl_selesai,
-            'status' => 'Proses',
-            'keterangan' => $request->keterangan ?? null,
-        ]);
+        $validated['users_id'] = Auth::user()->id;
 
-        return redirect()->route('mahasiswa-perizinan.index')->with('success', 'Selamat ! Anda berhasil mengajukan tempat magang!');
+        $izins = Perizinan::where('id', $id)->first();
+
+        if($request->surat_permohonan){
+            if($izins->surat_permohonan){
+                Storage::delete($izins->surat_permohonan);
+            }
+            $validated['surat_permohonan'] = $request->file('surat_permohonan')->store('surat_permohonan');
+        }else{
+            $validated['surat_permohonan'] = $izins->surat_permohonan;
+        }
+
+        $izins->update($validated);
+
+        return redirect()->route('mahasiswa-perizinan.index')->with('success', 'Selamat ! Anda berhasil memperbaharui data');
     }
 
     public function destroy($id)
     {
-        // Ambil data perizinan berdasarkan ID
-        $izins = Perizinan::find($id);
-
-        // Periksa apakah data perizinan ditemukan
-        if (!$izins) {
-            return back()->with('error', 'Data perizinan tidak ditemukan.');
+        $izins = Perizinan::where('id', $id)->first();
+        if($izins->surat_permohonan){
+            Storage::delete($izins->surat_permohonan);
         }
 
-        // Ambil data perusahaan yang terkait
-        $perusahaans = Perusahan::find($izins->perusahaan_id);
-
-        // Periksa apakah data perusahaan ditemukan
-        if ($perusahaans) {
-            // Tambahkan kuota perusahaan
-            $perusahaans->update([
-                'kuota_perusahaan' => $perusahaans->kuota_perusahaan + 1,
-            ]);
-        }
-
-        // Hapus data perizinan
         $izins->delete();
 
-        return back()->with('success', 'Selamat! Anda berhasil menghapus tempat magang Anda! Silakan pilih tempat magang lainnya.');
+        return redirect()->route('mahasiswa-perizinan.index')->with('success', 'Selamat ! Anda berhasil menghapus data');
     }
-
 }

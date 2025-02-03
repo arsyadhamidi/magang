@@ -92,6 +92,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Mahasiswa
     Route::group(['middleware' => [CekLevel::class . ':Mahasiswa']], function () {
-
+        // Perizinan
+        Route::get('/mahasiswa-perizinan', [MahasiswaPerizinanController::class, 'index'])->name('mahasiswa-perizinan.index');
+        Route::get('/mahasiswa-perizinan/create', [MahasiswaPerizinanController::class, 'create'])->name('mahasiswa-perizinan.create');
+        Route::get('/mahasiswa-perizinan/edit/{id}', [MahasiswaPerizinanController::class, 'edit'])->name('mahasiswa-perizinan.edit');
+        Route::post('/mahasiswa-perizinan/store', [MahasiswaPerizinanController::class, 'store'])->name('mahasiswa-perizinan.store');
+        Route::post('/mahasiswa-perizinan/update/{id}', [MahasiswaPerizinanController::class, 'update'])->name('mahasiswa-perizinan.update');
+        Route::post('/mahasiswa-perizinan/destroy/{id}', [MahasiswaPerizinanController::class, 'destroy'])->name('mahasiswa-perizinan.destroy');
     });
 });

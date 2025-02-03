@@ -183,7 +183,8 @@
                                 </a>
                             </li>
                             <li class="nav-item" data-name="laporanmingguan">
-                                <a href="{{ route('data-laporanmingguan.index') }}" class="nav-link @yield('menuDataLaporanMingguan')">
+                                <a href="{{ route('data-laporanmingguan.index') }}"
+                                    class="nav-link @yield('menuDataLaporanMingguan')">
                                     <i class="nav-icon fas fa-calendar-alt"></i>
                                     <p>
                                         Laporan Mingguan
@@ -203,6 +204,15 @@
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Users Registrasi
+                                    </p>
+                                </a>
+                            </li>
+                        @elseif (Auth()->user()->level == 'Mahasiswa')
+                            <li class="nav-item" data-name="perizinan">
+                                <a href="{{ route('mahasiswa-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Data Perizinan
                                     </p>
                                 </a>
                             </li>
