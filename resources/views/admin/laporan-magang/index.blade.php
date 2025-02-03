@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body table-responsive">
                         <table class="table table-bordered table-striped" id="myTable" style="width: 100%">
-                            <thead>
+                            <thead class="bg-primary text-white">
                                 <tr>
                                     <th style="width: 4%; text-align: center;">No.</th>
                                     <th style="text-align: center;">Nama</th>

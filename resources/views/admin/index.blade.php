@@ -4,9 +4,9 @@
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>{{ $perusahaans ?? '0' }}</h3>
+                <h3>{{ $mingguans ?? '0' }}</h3>
 
-                <p>Perusahaan</p>
+                <p>Laporan Mingguan</p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -19,9 +19,9 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>{{ $mahasiswas ?? '0' }}</h3>
+                <h3>{{ $magangs ?? '0' }}</h3>
 
-                <p>Mahasiswa</p>
+                <p>Laporan Magang</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>

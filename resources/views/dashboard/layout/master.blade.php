@@ -220,25 +220,27 @@
                             @php
                                 $izins = \App\Models\Perizinan::where('users_id', Auth()->user()->id)->first();
                             @endphp
-                            @if ($izins->status == 'Diterima')
-                                <li class="nav-item" data-name="laporanmingguan">
-                                    <a href="{{ route('mahasiswa-laporanmingguan.index') }}"
-                                        class="nav-link @yield('menuDataLaporanMingguan')">
-                                        <i class="nav-icon fas fa-calendar-alt"></i>
-                                        <p>
-                                            Laporan Mingguan
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" data-name="laporanmagang">
-                                    <a href="{{ route('mahasiswa-laporanmagang.index') }}"
-                                        class="nav-link @yield('menuDataLaporanMagang')">
-                                        <i class="nav-icon fas fa-comments"></i>
-                                        <p>
-                                            Laporan Magang
-                                        </p>
-                                    </a>
-                                </li>
+                            @if (!empty($izins))
+                                @if ($izins->status == 'Diterima')
+                                    <li class="nav-item" data-name="laporanmingguan">
+                                        <a href="{{ route('mahasiswa-laporanmingguan.index') }}"
+                                            class="nav-link @yield('menuDataLaporanMingguan')">
+                                            <i class="nav-icon fas fa-calendar-alt"></i>
+                                            <p>
+                                                Laporan Mingguan
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" data-name="laporanmagang">
+                                        <a href="{{ route('mahasiswa-laporanmagang.index') }}"
+                                            class="nav-link @yield('menuDataLaporanMagang')">
+                                            <i class="nav-icon fas fa-comments"></i>
+                                            <p>
+                                                Laporan Magang
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endif
                             @endif
                         @endif
                     </ul>
