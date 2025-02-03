@@ -63,18 +63,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-perizinan/update/{id}', [AdminPerizinanController::class, 'update'])->name('data-perizinan.update');
         Route::post('/data-perizinan/destroy/{id}', [AdminPerizinanController::class, 'destroy'])->name('data-perizinan.destroy');
 
-        // Perusahaan
-        Route::get('/data-mahasiswa', [AdminMahasiswaController::class, 'index'])->name('data-mahasiswa.index');
-        Route::post('/data-mahasiswa/store', [AdminMahasiswaController::class, 'store'])->name('data-mahasiswa.store');
-        Route::post('/data-mahasiswa/update/{id}', [AdminMahasiswaController::class, 'update'])->name('data-mahasiswa.update');
-        Route::post('/data-mahasiswa/destroy/{id}', [AdminMahasiswaController::class, 'destroy'])->name('data-mahasiswa.destroy');
-
-        // Perusahaan
-        Route::get('/data-perusahaan', [AdminPerusahaanController::class, 'index'])->name('data-perusahaan.index');
-        Route::post('/data-perusahaan/store', [AdminPerusahaanController::class, 'store'])->name('data-perusahaan.store');
-        Route::post('/data-perusahaan/update/{id}', [AdminPerusahaanController::class, 'update'])->name('data-perusahaan.update');
-        Route::post('/data-perusahaan/destroy/{id}', [AdminPerusahaanController::class, 'destroy'])->name('data-perusahaan.destroy');
-
         // Users
         Route::get('/data-user', [AdminUserController::class, 'index'])->name('data-user.index');
         Route::post('/data-user/store', [AdminUserController::class, 'store'])->name('data-user.store');

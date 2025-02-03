@@ -76,21 +76,6 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <select name="perusahaan_id" class="form-control @error('perusahaan_id') is-invalid @enderror"
-                            id="selectedPerusahaan" style="width: 100%">
-                            <option value="" selected>Pilih Perusahaan</option>
-                            @foreach ($perusahaans as $data)
-                                <option value="{{ $data->id }}"
-                                    {{ $data->id == old('perusahaan_id') ? 'selected' : '' }}>{{ $data->nama_perusahaan ?? '-' }}</option>
-                            @endforeach
-                        </select>
-                        @error('perusahaan_id')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
                     <div class="input-group
                             mb-3">
                         <input type="number" name="telp" class="form-control @error('telp') is-invalid @enderror"

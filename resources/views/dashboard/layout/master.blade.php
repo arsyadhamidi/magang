@@ -174,84 +174,11 @@
                         </li>
 
                         @if (Auth()->user()->level == 'Admin')
-                            <li class="nav-item" data-name="perusahaan">
-                                <a href="{{ route('data-perusahaan.index') }}" class="nav-link @yield('menuDataPerusahaan')">
-                                    <i class="nav-icon fas fa-hospital"></i>
-                                    <p>
-                                        Data Perusahaan
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-name="mahasiswa">
-                                <a href="{{ route('data-mahasiswa.index') }}" class="nav-link @yield('menuDataMahasiswa')">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>
-                                        Data Mahasiswa
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-name="perizinan">
-                                <a href="{{ route('data-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
-                                    <i class="nav-icon fas fa-calendar-alt"></i>
-                                    <p>
-                                        Data Perizinan
-                                    </p>
-                                </a>
-                            </li>
                             <li class="nav-item" data-name="userregistrasi">
                                 <a href="{{ route('data-user.index') }}" class="nav-link @yield('menuDataUser')">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Users Registrasi
-                                    </p>
-                                </a>
-                            </li>
-                        @elseif(Auth()->user()->level == 'Mahasiswa')
-                            <li class="nav-item" data-name="perizinan">
-                                <a href="{{ route('mahasiswa-perizinan.index') }}"
-                                    class="nav-link @yield('menuMahasiswaPerizinan')">
-                                    <i class="nav-icon fas fa-exclamation-triangle"></i>
-                                    <p>
-                                        Perizinan Magang
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-name="riwayat">
-                                <a href="{{ route('mahasiswa-riwayat.index') }}" class="nav-link @yield('menuMahasiswaRiwayat')">
-                                    <i class="nav-icon fas fa-history"></i>
-                                    <p>
-                                        Data Riwayat
-                                    </p>
-                                </a>
-                            </li>
-                        @elseif(Auth()->user()->level == 'Pegawai')
-                            @php
-                                $countIzins = \App\Models\Perizinan::where('status', 'Proses')->count();
-                            @endphp
-                            <li class="nav-item" data-name="perusahaan">
-                                <a href="{{ route('pegawai-perusahaan.index') }}" class="nav-link @yield('menuDataPerusahaan')">
-                                    <i class="nav-icon fas fa-hospital"></i>
-                                    <p>
-                                        Data Perusahaan
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-name="mahasiswa">
-                                <a href="{{ route('pegawai-mahasiswa.index') }}" class="nav-link @yield('menuDataMahasiswa')">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>
-                                        Data Mahasiswa
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-name="perizinan">
-                                <a href="{{ route('pegawai-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
-                                    <i class="nav-icon fas fa-calendar-alt"></i>
-                                    <p>
-                                        Data Perizinan
-                                        @if ($countIzins)
-                                            <span class="right badge badge-danger">{{ $countIzins ?? '0' }}</span>
-                                        @endif
                                     </p>
                                 </a>
                             </li>

@@ -3,10 +3,6 @@
 @section('content')
     @if (Auth()->user()->level == 'Admin')
         @include('admin.index')
-    @elseif(Auth()->user()->level == 'Mahasiswa')
-        @include('mahasiswa.index')
-    @elseif(Auth()->user()->level == 'Pegawai')
-        @include('pegawai.index')
     @endif
 @endsection
 @push('custom-script')

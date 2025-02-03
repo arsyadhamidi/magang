@@ -23,13 +23,11 @@ class RegistrasiController extends Controller
             'name' => 'required|max:100',
             'username' => 'required|unique:users,username|max:100',
             'password' => 'required|max:100',
-            'perusahaan_id' => 'required',
             'telp' => 'required|max:100',
         ], [
             'name.required' => 'Nama Lengkap wajib diisi',
             'username.required' => 'Username wajib diisi',
             'password.required' => 'Password wajib diisi',
-            'perusahaan_id.required' => 'Perusahaan wajib diisi',
             'telp.required' => 'Nomor Telepon wajib diisi',
             'name.max' => 'Nama Lengkap maksimal 100 karakter',
             'username.max' => 'Username maksimal 100 karakter',
