@@ -81,6 +81,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-laporanmagang/store', [AdminLaporanMagangController::class, 'store'])->name('data-laporanmagang.store');
         Route::post('/data-laporanmagang/update/{id}', [AdminLaporanMagangController::class, 'update'])->name('data-laporanmagang.update');
         Route::post('/data-laporanmagang/destroy/{id}', [AdminLaporanMagangController::class, 'destroy'])->name('data-laporanmagang.destroy');
+        Route::post('/data-laporanmagang/generatepdf', [AdminLaporanMagangController::class, 'generatepdf'])->name('data-laporanmagang.generatepdf');
 
         // Perizinan
         Route::get('/data-perizinan', [AdminPerizinanController::class, 'index'])->name('data-perizinan.index');

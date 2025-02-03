@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use PDF;
 use App\Http\Controllers\Controller;
 use App\Models\LaporanMagang;
 use App\Models\User;
@@ -119,5 +120,21 @@ class AdminLaporanMagangController extends Controller
         $laporans->delete();
 
         return redirect()->route('data-laporanmagang.index')->with('success', 'Selamat ! Anda berhasil menghapus data');
+    }
+
+    public function generatepdf(Request $request)
+    {
+        $query = LaporanMagang::query();
+
+        // Filter berdasarkan status
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        // Dapatkan data berdasarkan filter
+        $magangs = $query->latest()->get();
+
+    	$pdf = PDF::loadview('admin.laporan-magang.export-pdf',['magangs'=> $magangs]);
+    	return $pdf->stream('laporan-magang.pdf');
     }
 }
