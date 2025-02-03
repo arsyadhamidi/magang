@@ -55,7 +55,7 @@
                                     <label>Penilaian</label>
                                     <select name="nilai" id="selectedNilai"
                                         class="form-control @error('nilai') is-invalid @enderror" style="width: 100%">
-                                        <option value="" selected>Pilih <P></P>enilaian</option>
+                                        <option value="" selected>Pilih Penilaian</option>
                                         <option value="Sangat Baik" {{ $laporans->nilai == 'Sangat Baik' ? 'selected' : '' }}>
                                             Sangat Baik</option>
                                         <option value="Baik" {{ $laporans->nilai == 'Baik' ? 'selected' : '' }}>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegistrasiController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Mahasiswa\MahasiswaBiodataDiriController;
+use App\Http\Controllers\Mahasiswa\MahasiswaLaporanMingguanController;
 use App\Http\Controllers\Mahasiswa\MahasiswaPerizinanController;
 use App\Http\Controllers\Mahasiswa\MahasiswaRiwayatController;
 use App\Http\Controllers\Pegawai\PegawaiMahasiswaController;
@@ -92,6 +93,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Mahasiswa
     Route::group(['middleware' => [CekLevel::class . ':Mahasiswa']], function () {
+
+        // Laporan Mingguan
+        Route::get('/mahasiswa-laporanmingguan', [MahasiswaLaporanMingguanController::class, 'index'])->name('mahasiswa-laporanmingguan.index');
+        Route::get('/mahasiswa-laporanmingguan/create', [MahasiswaLaporanMingguanController::class, 'create'])->name('mahasiswa-laporanmingguan.create');
+        Route::get('/mahasiswa-laporanmingguan/edit/{id}', [MahasiswaLaporanMingguanController::class, 'edit'])->name('mahasiswa-laporanmingguan.edit');
+        Route::post('/mahasiswa-laporanmingguan/store', [MahasiswaLaporanMingguanController::class, 'store'])->name('mahasiswa-laporanmingguan.store');
+        Route::post('/mahasiswa-laporanmingguan/update/{id}', [MahasiswaLaporanMingguanController::class, 'update'])->name('mahasiswa-laporanmingguan.update');
+        Route::post('/mahasiswa-laporanmingguan/destroy/{id}', [MahasiswaLaporanMingguanController::class, 'destroy'])->name('mahasiswa-laporanmingguan.destroy');
+
         // Perizinan
         Route::get('/mahasiswa-perizinan', [MahasiswaPerizinanController::class, 'index'])->name('mahasiswa-perizinan.index');
         Route::get('/mahasiswa-perizinan/create', [MahasiswaPerizinanController::class, 'create'])->name('mahasiswa-perizinan.create');
