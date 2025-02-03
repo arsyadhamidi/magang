@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistrasiController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Kepala\KepalaPerizinanController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Mahasiswa\MahasiswaBiodataDiriController;
 use App\Http\Controllers\Mahasiswa\MahasiswaLaporanMagangController;
@@ -62,7 +63,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
     // Admin
-    Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {
+    Route::group(['middleware' => [CekLevel::class . ':Admin,Kepala']], function () {
 
         // Laporan Mingguan
         Route::get('/data-laporanmingguan', [AdminLaporanMingguanController::class, 'index'])->name('data-laporanmingguan.index');
@@ -94,6 +95,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/data-user/update/{id}', [AdminUserController::class, 'update'])->name('data-user.update');
         Route::post('/data-user/destroy/{id}', [AdminUserController::class, 'destroy'])->name('data-user.destroy');
     });
+
+     // Kepala
+     Route::group(['middleware' => [CekLevel::class . ':Kepala']], function () {
+        Route::get('/kepala-perizinan', [KepalaPerizinanController::class, 'index'])->name('kepala-perizinan.index');
+     });
 
     // Supervisor
     Route::group(['middleware' => [CekLevel::class . ':Supervisor']], function () {

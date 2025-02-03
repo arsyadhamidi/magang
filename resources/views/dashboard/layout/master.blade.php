@@ -173,7 +173,7 @@
                             </a>
                         </li>
 
-                        @if (Auth()->user()->level == 'Admin')
+                        @if (Auth()->user()->level == 'Admin' || Auth()->user()->level == 'Kepala')
                             <li class="nav-item" data-name="perizinan">
                                 <a href="{{ route('data-perizinan.index') }}" class="nav-link @yield('menuDataPerizinan')">
                                     <i class="nav-icon fas fa-book"></i>
@@ -263,7 +263,8 @@
                                 </a>
                             </li>
                             <li class="nav-item" data-name="laporanmagang">
-                                <a href="{{ route('supervisor-laporanmagang.index') }}" class="nav-link @yield('menuDataLaporanMagang')">
+                                <a href="{{ route('supervisor-laporanmagang.index') }}"
+                                    class="nav-link @yield('menuDataLaporanMagang')">
                                     <i class="nav-icon fas fa-comments"></i>
                                     <p>
                                         Laporan Magang
