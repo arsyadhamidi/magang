@@ -56,6 +56,32 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label>Tanggal Mulai Magang</label>
+                                    <input type="date" name="tgl_mulai"
+                                        class="form-control @error('tgl_mulai') is-invalid @enderror"
+                                        value="{{ old('tgl_mulai', \Carbon\Carbon::now()->format('Y-m-d')) }}">
+                                    @error('tgl_mulai')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label>Tanggal Selesai Magang</label>
+                                    <input type="date" name="tgl_selesai"
+                                        class="form-control @error('tgl_selesai') is-invalid @enderror"
+                                        value="{{ old('tgl_selesai', \Carbon\Carbon::now()->format('Y-m-d')) }}">
+                                    @error('tgl_selesai')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="selectedJekel">Jenis Kelamin</label>
@@ -87,7 +113,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label>Universitas</label>
                                     <input type="text" name="universitas"

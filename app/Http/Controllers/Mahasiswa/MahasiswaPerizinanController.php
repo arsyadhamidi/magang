@@ -34,10 +34,12 @@ class MahasiswaPerizinanController extends Controller
 
     public function store(Request $request)
     {
-    $validated = $request->validate([
+        $validated = $request->validate([
             'nama' => 'required|max:255',
             'tmp_lahir' => 'required|max:255',
             'tgl_lahir' => 'required|date',
+            'tgl_mulai' => 'required|date',
+            'tgl_selesai' => 'required|date',
             'jk' => 'required|max:255',
             'telp' => 'required|max:255',
             'universitas' => 'required|max:255',
@@ -50,6 +52,10 @@ class MahasiswaPerizinanController extends Controller
             'tmp_lahir.max' => 'Tempat lahir tidak boleh lebih dari 255 karakter.',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi.',
             'tgl_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid.',
+            'tgl_mulai.required' => 'Tanggal Mulai Magang harus diisi.',
+            'tgl_mulai.date' => 'Tanggal Mulai Magang harus berupa tanggal yang valid.',
+            'tgl_selesai.required' => 'Tanggal Selesai Magang harus diisi.',
+            'tgl_selesai.date' => 'Tanggal Selesai Magang harus berupa tanggal yang valid.',
             'jk.required' => 'Jenis kelamin harus dipilih.',
             'jk.max' => 'Jenis kelamin tidak boleh lebih dari 255 karakter.',
             'telp.required' => 'Nomor telepon harus diisi.',
@@ -63,7 +69,7 @@ class MahasiswaPerizinanController extends Controller
             'alamat.max' => 'Alamat tidak boleh lebih dari 500 karakter.',
         ]);
 
-        if($request->surat_permohonan){
+        if ($request->surat_permohonan) {
             $validated['surat_permohonan'] = $request->file('surat_permohonan')->store('surat_permohonan');
         }
 
@@ -89,6 +95,8 @@ class MahasiswaPerizinanController extends Controller
             'nama' => 'required|max:255',
             'tmp_lahir' => 'required|max:255',
             'tgl_lahir' => 'required|date',
+            'tgl_mulai' => 'required|date',
+            'tgl_selesai' => 'required|date',
             'jk' => 'required|max:255',
             'telp' => 'required|max:255',
             'universitas' => 'required|max:255',
@@ -101,6 +109,10 @@ class MahasiswaPerizinanController extends Controller
             'tmp_lahir.max' => 'Tempat lahir tidak boleh lebih dari 255 karakter.',
             'tgl_lahir.required' => 'Tanggal lahir harus diisi.',
             'tgl_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid.',
+            'tgl_mulai.required' => 'Tanggal Mulai Magang harus diisi.',
+            'tgl_mulai.date' => 'Tanggal Mulai Magang harus berupa tanggal yang valid.',
+            'tgl_selesai.required' => 'Tanggal Selesai Magang harus diisi.',
+            'tgl_selesai.date' => 'Tanggal Selesai Magang harus berupa tanggal yang valid.',
             'jk.required' => 'Jenis kelamin harus dipilih.',
             'jk.max' => 'Jenis kelamin tidak boleh lebih dari 255 karakter.',
             'telp.required' => 'Nomor telepon harus diisi.',
@@ -117,12 +129,12 @@ class MahasiswaPerizinanController extends Controller
 
         $izins = Perizinan::where('id', $id)->first();
 
-        if($request->surat_permohonan){
-            if($izins->surat_permohonan){
+        if ($request->surat_permohonan) {
+            if ($izins->surat_permohonan) {
                 Storage::delete($izins->surat_permohonan);
             }
             $validated['surat_permohonan'] = $request->file('surat_permohonan')->store('surat_permohonan');
-        }else{
+        } else {
             $validated['surat_permohonan'] = $izins->surat_permohonan;
         }
 
@@ -134,7 +146,7 @@ class MahasiswaPerizinanController extends Controller
     public function destroy($id)
     {
         $izins = Perizinan::where('id', $id)->first();
-        if($izins->surat_permohonan){
+        if ($izins->surat_permohonan) {
             Storage::delete($izins->surat_permohonan);
         }
 
