@@ -5,12 +5,6 @@
         <div class="col-lg-12">
             <div class="mb-3">
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('operator-perizinan.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i>
-                            Tambahkan Data Perizinan
-                        </a>
-                    </div>
                     <div class="card-body table-responsive">
                         <table class="table table-bordered table-striped" id="myTable" style="width: 100%">
                             <thead class="bg-primary text-white">
