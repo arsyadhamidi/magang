@@ -15,31 +15,49 @@
         .header {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
             padding: 20px;
-            background-color: #f8f9fa;
-            border-bottom: 2px solid #20c997;
-            height: 50px;
+            border-bottom: 1px solid black;
         }
 
         .header img {
-            width: 50px;
+            width: 100px;
             height: auto;
             margin-right: 15px;
-            float: left;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-top: -120px;
+            margin-left: 60px;
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 18px;
             margin: 0;
             color: #333;
-            margin-left: 50px;
-            float: left;
         }
 
-        .judul h1 {
-            margin: 20px 30px;
-            text-align: center;
+        .header h2 {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .header p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .header a {
+            color: #007BFF;
+            /* Warna biru untuk tautan */
+            text-decoration: none;
+            /* Menghilangkan garis bawah */
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+            /* Garis bawah saat hover */
         }
 
         table {
@@ -81,11 +99,22 @@
 <body>
     <div class="header">
         <img src="{{ public_path('images/logo.png') }}" alt="Logo Kemenkumham">
-        <h1>Kementerian Hukum dan Hak Asasi Manusia Sumatera Barat</h1>
+        <div class="header-text">
+            <h1>KEMENTERIAN HUKUM DAN HAK ASASI MANUSIA</h1>
+            <h2>REPUBLIK INDONESIA</h2>
+            <strong>KANTOR WILAYAH SUMATERA BARAT</strong>
+            <p>Jalan S. Parman Nomor 256 Padang</p>
+            <p>Telepon: 0751 7055471 - Faksimili: 0751 7055471</p>
+            <p>Lamaran: <a href="http://sumbar.kemenkumham.go.id">http://sumbar.kemenkumham.go.id</a></p>
+        </div>
     </div>
-    <div class="judul">
-        <h1>REKAP DATA LAPORAN MAGANG</h1>
-    </div>
+    <table style="width: 100%; border: none;">
+        <tr style="border: none;">
+            <td style="width: 15%; border: none;">Hal</td>
+            <td style="width: 3%; border: none;">:</td>
+            <td style="border: none;">REKAP DATA LAPORAN MAGANG</td>
+        </tr>
+    </table>
     <table>
         <tr>
             <th>No.</th>
