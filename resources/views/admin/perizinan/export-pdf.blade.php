@@ -57,11 +57,6 @@
             text-decoration: underline; /* Garis bawah saat hover */
         }
 
-        .judul h1 {
-            margin: 20px 30px;
-            text-align: center;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
