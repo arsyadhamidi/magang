@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('tmp_lahir');
             $table->date('tgl_lahir');
+            $table->date('tgl_mulai');
+            $table->date('tgl_selesai');
             $table->string('jk');
             $table->string('telp');
             $table->string('universitas');
