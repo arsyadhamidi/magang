@@ -227,7 +227,19 @@
                                             class="nav-link @yield('menuDataLaporanMingguan')">
                                             <i class="nav-icon fas fa-calendar-alt"></i>
                                             <p>
+                                                @php
+                                                    $mingguanStatusCountMahasiswa = \App\Models\LaporanMingguan::where(
+                                                        'status',
+                                                        'Proses',
+                                                    )
+                                                    ->where('users_id', Auth()->user()->id)
+                                                    ->count();
+                                                @endphp
                                                 Laporan Mingguan
+                                                @if ($mingguanStatusCountMahasiswa)
+                                                    <span
+                                                        class="right badge badge-danger">{{ $mingguanStatusCountMahasiswa ?? '0' }}</span>
+                                                @endif
                                             </p>
                                         </a>
                                     </li>
@@ -237,6 +249,18 @@
                                             <i class="nav-icon fas fa-comments"></i>
                                             <p>
                                                 Laporan Magang
+                                                @php
+                                                    $magangStatusCountMahasiswa = \App\Models\LaporanMagang::where(
+                                                        'status',
+                                                        'Proses',
+                                                    )
+                                                    ->where('users_id', Auth()->user()->id)
+                                                    ->count();
+                                                @endphp
+                                                @if ($magangStatusCountMahasiswa)
+                                                    <span
+                                                        class="right badge badge-danger">{{ $magangStatusCountMahasiswa ?? '0' }}</span>
+                                                @endif
                                             </p>
                                         </a>
                                     </li>
