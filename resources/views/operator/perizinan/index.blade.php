@@ -20,6 +20,7 @@
                                     <th style="text-align: center;">TTL</th>
                                     <th style="text-align: center;">JK</th>
                                     <th style="text-align: center;">Universitas</th>
+                                    <th style="text-align: center;">Tgl. Magang</th>
                                     <th style="text-align: center;">Status</th>
                                     <th style="text-align: center;">Aksi</th>
                                 </tr>
@@ -33,6 +34,10 @@
                                             {{ \Carbon\Carbon::parse($data->tgl_lahir)->translatedFormat('d F Y') }}</td>
                                         <td>{{ $data->jk ?? '-' }}</td>
                                         <td>{{ $data->universitas ?? '-' }}</td>
+                                        <td>
+                                            {{ \Carbon\Carbon::parse($data->tgl_mulai)->translatedFormat('d F Y') }},
+                                            {{ \Carbon\Carbon::parse($data->tgl_selesai)->translatedFormat('d F Y') }}
+                                        </td>
                                         <td>
                                             @if ($data->status == 'Diterima')
                                                 <span class="badge badge-success">{{ $data->status ?? '-' }}</span>
